@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technova</title>
+    <style>
+        :root {
+            --primario: #1E90FF;
+            --secundario: #9B59B6;
+            --fondo: #F9F9F9;
+            --texto: #2C3E50;
+            --cta: #2ECC71;
+            --advertencia: #E67E22;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--fondo);
+            color: var(--texto);
+        }
+
+        header {
+            background-color: var(--primario);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            background-color: var(--secundario);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            transition: background 0.3s;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #8e44ad;
+        }
+
+        section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: auto;
+            transform: translateY(20px); /* Deslizar hacia abajo al inicio */
+        }
+
+        section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0); /* Deslizar hacia su posición original */
+        }
+
+        h1, h2, h3 {
+            color: var(--primario);
+        }
+
+        .cta {
+            background-color: var(--cta);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            margin: 2rem auto;
+            border-radius: 10px;
+            width: fit-content;
+        }
+
+        .cta button {
+            background-color: white;
+            color: var(--cta);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cta button:hover {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        footer {
+            background-color: var(--texto);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            margin-top: 4rem;
+        }
+
+        .product {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .product button {
+            background-color: var(--cta);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background-color: #27ae60;
+        }
+
+        #carrito {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-radius: 8px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            background-color: var(--cta);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Technova</h1>
+    </header>
+    <nav>
+        <a onclick="showSection('inicio')">Inicio</a>
+        <a onclick="showSection('nosotros')">Nosotros</a>
+        <a onclick="showSection('productos')">Productos</a>
+        <a onclick="showSection('servicios')">Servicios</a>
+        <a onclick="showSection('app')">App</a>
+        <a onclick="showSection('videojuego')">Videojuego</a>
+        <a onclick="showSection('contacto')">Contáctenos</a>
+    </nav>
+
+    <section id="inicio" class="active">
+        <h2>Bienvenido a Technova</h2>
+        <p>Ofrecemos lo mejor en tecnología de consumo para transformar tu día a día.</p>
+        <img src="#" alt="Imagen representativa" style="width:100%; max-width:500px; display:block; margin:auto;">
+        <div class="cta">
+            <button onclick="showSection('productos')">Explorar productos</button>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <h2>Historia de la empresa</h2>
+        <p>Nuestra historia comienza...</p>
+        <h3>Misión</h3><img src="#" alt="Misión"><p>Descripción de la misión.</p>
+        <h3>Visión</h3><img src="#" alt="Visión"><p>Descripción de la visión.</p>
+        <h3>Objetivos</h3><img src="#" alt="Objetivos"><p>Nuestros objetivos.</p>
+        <h3>Valores</h3><img src="#" alt="Valores"><p>Valores fundamentales.</p>
+    </section>
+
+    <section id="productos">
+        <h2>Productos</h2>
+        <div class="product">
+            <h3>Celular XYZ</h3>
+            <p>Potente, moderno, excelente cámara.</p>
+            <button onclick="agregarAlCarrito('Celular XYZ')">Añadir al carrito</button>
+        </div>
+        <div class="product">
+            <h3>Computador ABC</h3>
+            <p>Rendimiento alto para trabajo y gaming.</p>
+            <button onclick="agregarAlCarrito('Computador ABC')">Añadir al carrito</button>
+        </div>
+        <div class="product">
+            <h3>SmartWatch 123</h3>
+            <p>Controla tu salud desde la muñeca.</p>
+            <button onclick="agregarAlCarrito('SmartWatch 123')">Añadir al carrito</button>
+        </div>
+        <div class="product">
+            <h3>Televisor UltraHD</h3>
+            <p>Resolución 4K, gran tamaño y conectividad.</p>
+            <button onclick="agregarAlCarrito('Televisor UltraHD')">Añadir al carrito</button>
+        </div>
+        <div id="carrito">
+            <h3>Carrito de compras</h3>
+            <ul id="lista-carrito"></ul>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <h3>Reparación de equipos</h3><img src="#" alt="Reparación">
+        <h3>Asesoría personalizada</h3>
+        <p>Contáctanos: WhatsApp | Instagram | Correo electrónico</p>
+        <h3>Envío a domicilio</h3>
+        <p>Formulario para datos de envío</p>
+    </section>
+
+    <section id="app">
+        <h2>Descarga nuestra App</h2>
+        <p>Escanea el código QR para descargar la aplicación.</p>
+        <img src="#" alt="QR App">
+    </section>
+
+    <section id="videojuego">
+        <h2>Videojuego Technova</h2>
+        <p>Instrucciones del videojuego...</p>
+        <a href="#">Jugar ahora</a>
+    </section>
+
+    <section id="contacto">
+        <h2>Contáctanos</h2>
+        <form>
+            <label>Nombre:<br><input type="text" name="nombre"></label><br>
+            <label>Correo:<br><input type="email" name="correo"></label><br>
+            <label>Mensaje:<br><textarea name="mensaje" rows="5"></textarea></label><br>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Technova. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(s => {
+                if (s.classList.contains('active')) {
+                    s.classList.remove('active');
+                    s.style.opacity = 0;
+                    setTimeout(() => {
+                        s.style.display = 'none';
+                    }, 400); // coincide con la duración de la transición
+                }
+            });
+
+            const target = document.getElementById(id);
+            target.style.display = 'block';
+            target.style.opacity = 0; // Asegurar que inicie invisible
+            setTimeout(() => {
+                target.classList.add('active');
+                target.style.opacity = 1;
+            }, 10); // Esperar un momento para que el navegador registre el cambio
+        }
+
+        const carrito = [];
+        function agregarAlCarrito(producto) {
+            carrito.push(producto);
+            actualizarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const lista = document.getElementById('lista-carrito');
+            lista.innerHTML = '';
+            carrito.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                lista.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
