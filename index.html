@@ -545,6 +545,10 @@
             color: var(--gris-oscuro);
         }
 
+        .carrito-lista {
+            list-style: none;
+        }
+
         .carrito-item {
             display: flex;
             gap: 1rem;
@@ -593,6 +597,10 @@
             text-align: right;
         }
 
+        .carrito-total span {
+            color: var(--naranja-cta);
+        }
+
         .carrito-checkout {
             width: 100%;
             padding: 1rem;
@@ -623,6 +631,28 @@
 
         .overlay.active {
             display: block;
+        }
+
+        /* Notificación */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--verde-cta);
+            color: var(--blanco);
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1002;
+        }
+
+        .notification.show {
+            opacity: 1;
         }
 
         /* Sección Servicios */
@@ -1134,7 +1164,21 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 90px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 90px);
+                background-color: var(--azul-primario);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 2rem;
+                transition: right 0.3s ease;
+            }
+            
+            .nav-links.active {
+                right: 0;
             }
             
             .menu-mobile {
@@ -1178,6 +1222,10 @@
             .contact-form, .contact-info {
                 padding: 1.5rem;
             }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1193,12 +1241,12 @@
         
         <nav>
             <div class="nav-links">
-                <a onclick="showSection('inicio')">Inicio</a>
-                <a onclick="showSection('nosotros')">Nosotros</a>
-                <a onclick="showSection('productos')">Productos</a>
-                <a onclick="showSection('servicios')">Servicios</a>
-                <a onclick="showSection('app')">App</a>
-                <a onclick="showSection('contacto')">Contacto</a>
+                <a href="#" onclick="showSection('inicio'); return false;">Inicio</a>
+                <a href="#" onclick="showSection('nosotros'); return false;">Nosotros</a>
+                <a href="#" onclick="showSection('productos'); return false;">Productos</a>
+                <a href="#" onclick="showSection('servicios'); return false;">Servicios</a>
+                <a href="#" onclick="showSection('app'); return false;">App</a>
+                <a href="#" onclick="showSection('contacto'); return false;">Contacto</a>
             </div>
             
             <div class="carrito-icon" onclick="toggleCarrito()">
@@ -1211,6 +1259,22 @@
             </div>
         </nav>
     </header>
+
+    <!-- Overlay para menús -->
+    <div class="overlay" onclick="closeAllMenus()"></div>
+
+    <!-- Carrito de compras -->
+    <div class="carrito-sidebar">
+        <div class="carrito-header">
+            <h3>Tu Carrito</h3>
+            <span class="close-carrito" onclick="toggleCarrito()">&times;</span>
+        </div>
+        <ul class="carrito-lista"></ul>
+        <div class="carrito-total">
+            Total: <span>$0.00</span>
+        </div>
+        <button class="carrito-checkout">Proceder al Pago</button>
+    </div>
 
     <!-- Sección Inicio -->
     <section id="inicio" class="active">
@@ -1243,41 +1307,4 @@
                     <div class="valor-icon">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3>Soporte Experto</h3>
-                    <p>Asesoría personalizada y soporte técnico especializado cuando lo necesites.</p>
-                </div>
-                
-                <div class="valor-card">
-                    <div class="valor-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Garantía Extendida</h3>
-                    <p>Protección premium para todos tus dispositivos con cobertura ampliada.</p>
-                </div>
-                
-                <div class="valor-card">
-                    <div class="valor-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h3>Envío Rápido</h3>
-                    <p>Recibe tus productos en tiempo récord con nuestro servicio de entrega express.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Nosotros -->
-    <section id="nosotros">
-        <h2>Nuestra Historia</h2>
-        <div class="historia">
-            <div>
-                <p>Fundada en 2015 por un grupo de apasionados por la tecnología, Technova comenzó como un pequeño emprendimiento con la visión de hacer accesible la última tecnología a todos los bolsillos. Lo que empezó como una tienda online de componentes electrónicos hoy es una de las distribuidoras más importantes del país.</p>
-                <p>Nuestro crecimiento ha sido orgánico, siempre enfocados en la satisfacción del cliente y en mantenernos a la vanguardia de las tendencias tecnológicas. Hoy contamos con 5 tiendas físicas y un centro de distribución de 10,000 m².</p>
-            </div>
-            <img src="https://via.placeholder.com/500x300?text=Equipo+Technova" alt="Equipo Technova">
-        </div>
-        
-        <div class="mision-vision">
-            <div class="mv-card">
-                <h3>Misión</h3>
-                <p>Proveer soluciones tecnológicas innov
+                    <h3>Soporte Experto</h
