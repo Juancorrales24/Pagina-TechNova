@@ -74,3 +74,32 @@ footer {
     text-align: center;
     padding: 20px 0;
 }
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  color: #1e1e1e;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
