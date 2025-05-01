@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova - Venta de Productos Tecnológicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 0;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            color: #00ffff;
+        }
+
+        section {
+            padding: 40px;
+            background-color: #fff;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            border-bottom: 2px solid #1e1e1e;
+            padding-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #1e1e1e;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #444;
+        }
+
+        footer {
+            background-color: #1e1e1e;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>TechNova</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#catalogo">App Móvil</a></li>
+                <li><a href="#videojuego">Videojuego</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Inicio -->
+    <section id="inicio">
+        <h2>Bienvenido a TechNova</h2>
+        <p>Explora la mejor tecnología a tu alcance.</p>
+    </section>
+
+    <!-- Nosotros -->
+    <section id="nosotros">
+        <h2>Nosotros</h2>
+        <p><strong>Misión:</strong> Democratizar el acceso a tecnología de calidad.</p>
+        <p><strong>Visión:</strong> Ser líderes en innovación digital en Latinoamérica para 2030.</p>
+        <p><strong>Objetivos:</strong> Brindar asesoría, ofrecer productos actualizados y fomentar educación tecnológica.</p>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos">
+        <h2>Productos Destacados</h2>
+        <ul>
+            <li>Laptop Lenovo i7 - $2.000.000</li>
+            <li>Smartwatch Xiaomi - $350.000</li>
+            <li>Auriculares inalámbricos - $150.000</li>
+        </ul>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <ul>
+            <li>Reparación de equipos</li>
+            <li>Asesoría personalizada</li>
+            <li>Envío a domicilio</li>
+        </ul>
+    </section>
+
+    <!-- App móvil -->
+    <section id="catalogo">
+        <h2>App Móvil</h2>
+        <p>Consulta nuestro catálogo desde tu celular.</p>
+        <p><a href="link_app.apk">Descargar app</a></p>
+        <img src="pantallazo_app.png" alt="App móvil" style="max-width: 100%; border-radius: 10px;">
+    </section>
+
+    <!-- Videojuego Scratch -->
+    <section id="videojuego">
+        <h2>Videojuego</h2>
+        <p>¡Juega y aprende sobre tecnología!</p>
+        <iframe src="https://scratch.mit.edu/projects/tu_link" width="485" height="402"></iframe>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <h2>Contáctanos</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje"></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 TechNova. Todos los derechos reservados.</p>
+        <p>Síguenos en redes: Instagram | Facebook | TikTok</p>
+    </footer>
+</body>
+</html>
