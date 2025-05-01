@@ -3,292 +3,1281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technova</title>
+    <title>Technova - Innovación Tecnológica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primario: #1E90FF;
-            --secundario: #9B59B6;
-            --fondo: #F9F9F9;
+            --azul-primario: #2A5C8B;
+            --naranja-cta: #FF6B35;
+            --verde-cta: #4ECDC4;
+            --gris-claro: #F7F7F7;
+            --gris-oscuro: #333333;
             --texto: #2C3E50;
-            --cta: #2ECC71;
-            --advertencia: #E67E22;
+            --blanco: #FFFFFF;
+            --sombra: 0 4px 12px rgba(0,0,0,0.1);
+            --transicion: all 0.3s ease;
         }
 
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: var(--fondo);
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            background-color: var(--gris-claro);
             color: var(--texto);
+            line-height: 1.6;
         }
 
+        /* Header y Navegación */
         header {
-            background-color: var(--primario);
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, var(--azul-primario) 0%, #1E3D6B 100%);
+            color: var(--blanco);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--sombra);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+            transition: var(--transicion);
+        }
+
+        .logo:hover img {
+            transform: rotate(5deg);
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.8;
         }
 
         nav {
-            background-color: var(--secundario);
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 1rem;
+            align-items: center;
+            gap: 1.5rem;
         }
 
-        nav a {
-            color: white;
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--blanco);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
             padding: 0.5rem 1rem;
-            transition: background 0.3s;
             border-radius: 5px;
+            transition: var(--transicion);
+            position: relative;
         }
 
-        nav a:hover {
-            background-color: #8e44ad;
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--naranja-cta);
+            transition: var(--transicion);
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 70%;
+        }
+
+        .carrito-icon {
+            position: relative;
+            cursor: pointer;
+            color: var(--blanco);
+            font-size: 1.3rem;
+        }
+
+        .carrito-contador {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--naranja-cta);
+            color: var(--blanco);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .menu-mobile {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Secciones */
         section {
             display: none;
             opacity: 0;
-            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-            padding: 2rem;
-            max-width: 1000px;
-            margin: auto;
-            transform: translateY(20px); /* Deslizar hacia abajo al inicio */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            transform: translateY(20px);
         }
 
         section.active {
             display: block;
             opacity: 1;
-            transform: translateY(0); /* Deslizar hacia su posición original */
+            transform: translateY(0);
         }
 
-        h1, h2, h3 {
-            color: var(--primario);
-        }
-
-        .cta {
-            background-color: var(--cta);
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-            margin: 2rem auto;
-            border-radius: 10px;
-            width: fit-content;
-        }
-
-        .cta button {
-            background-color: white;
-            color: var(--cta);
-            border: none;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .cta button:hover {
-            background-color: #27ae60;
-            color: white;
-        }
-
-        footer {
-            background-color: var(--texto);
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            position: relative;
-            margin-top: 4rem;
-        }
-
-        .product {
+        h2 {
+            color: var(--azul-primario);
+            font-size: 2.2rem;
             margin-bottom: 1.5rem;
-            padding: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--naranja-cta);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: var(--azul-primario);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Sección Inicio */
+        #inicio .hero {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h2 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h2 span {
+            color: var(--naranja-cta);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
             border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            box-shadow: var(--sombra);
+            animation: float 3s ease-in-out infinite;
         }
 
-        .product button {
-            background-color: var(--cta);
-            color: white;
-            padding: 0.5rem 1rem;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--naranja-cta);
+            color: var(--blanco);
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
             cursor: pointer;
+            transition: var(--transicion);
+            box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
         }
 
-        .product button:hover {
-            background-color: #27ae60;
+        .btn:hover {
+            background-color: #e05a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 107, 53, 0.4);
         }
 
-        #carrito {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 1rem;
+        .btn-secondary {
+            background-color: var(--azul-primario);
+            box-shadow: 0 4px 8px rgba(42, 92, 139, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background-color: #234a73;
+            box-shadow: 0 6px 12px rgba(42, 92, 139, 0.4);
+        }
+
+        .propuesta-valor {
+            background-color: var(--blanco);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: var(--sombra);
+            margin-top: 3rem;
+        }
+
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
+        }
+
+        .valor-card {
+            background-color: var(--gris-claro);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transicion);
+        }
+
+        .valor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra);
+        }
+
+        .valor-icon {
+            font-size: 2.5rem;
+            color: var(--naranja-cta);
+            margin-bottom: 1rem;
+        }
+
+        /* Sección Nosotros */
+        .historia {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .historia img {
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+        }
+
+        .mision-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .mv-card {
+            background-color: var(--blanco);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mv-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .valores-accordion {
+            margin-top: 3rem;
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            background-color: var(--blanco);
+            border-radius: 8px;
+            box-shadow: var(--sombra);
+            overflow: hidden;
+        }
+
+        .accordion-btn {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            text-align: left;
+            background-color: var(--azul-primario);
+            color: var(--blanco);
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transicion);
+        }
+
+        .accordion-btn:hover {
+            background-color: #234a73;
+        }
+
+        .accordion-btn::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: var(--transicion);
+        }
+
+        .accordion-btn.active::after {
+            content: '-';
+        }
+
+        .panel {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .panel-content {
+            padding: 1.5rem 0;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .panel-content img {
+            width: 40%;
             border-radius: 8px;
         }
 
-        form input, form textarea {
-            width: 100%;
-            padding: 0.5rem;
-            margin: 0.5rem 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+        /* Sección Productos */
+        .category-filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
-        form button {
-            background-color: var(--cta);
-            color: white;
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            background-color: var(--gris-claro);
             border: none;
-            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transicion);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--azul-primario);
+            color: var(--blanco);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--blanco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--azul-primario);
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--naranja-cta);
+            margin: 0.5rem 0;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .add-to-cart {
+            flex: 1;
+            padding: 0.6rem;
+            background-color: var(--verde-cta);
+            color: var(--blanco);
+            border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: var(--transicion);
+            font-weight: 500;
+        }
+
+        .add-to-cart:hover {
+            background-color: #3db8b0;
+        }
+
+        .quick-view {
+            padding: 0.6rem;
+            background-color: var(--azul-primario);
+            color: var(--blanco);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transicion);
+            font-weight: 500;
+        }
+
+        .quick-view:hover {
+            background-color: #234a73;
+        }
+
+        /* Carrito de compras */
+        .carrito-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background-color: var(--blanco);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .carrito-sidebar.active {
+            right: 0;
+        }
+
+        .carrito-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .close-carrito {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gris-oscuro);
+        }
+
+        .carrito-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .carrito-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .carrito-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carrito-item-info {
+            flex: 1;
+        }
+
+        .carrito-item-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .carrito-item-price {
+            color: var(--naranja-cta);
+            font-weight: 600;
+        }
+
+        .carrito-item-remove {
+            color: #ff4d4d;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .carrito-total {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .carrito-checkout {
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1rem;
+            background-color: var(--naranja-cta);
+            color: var(--blanco);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+
+        .carrito-checkout:hover {
+            background-color: #e05a2b;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Sección Servicios */
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--blanco);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: var(--blanco);
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transicion);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .instagram-btn {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: var(--blanco);
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transicion);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .shipping-form input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        /* Sección App */
+        .app-section {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .app-content {
+            flex: 1;
+        }
+
+        .qr-code {
+            background-color: var(--blanco);
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: var(--sombra);
+            margin: 1.5rem 0;
+        }
+
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .app-store-btn, .play-store-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+
+        .app-store-btn {
+            background-color: #000;
+            color: var(--blanco);
+        }
+
+        .play-store-btn {
+            background-color: #0F9D58;
+            color: var(--blanco);
+        }
+
+        .game-section {
+            flex: 1;
+            background-color: var(--blanco);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+        }
+
+        .game-preview {
+            margin-top: 1.5rem;
+            position: relative;
+        }
+
+        .game-preview img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--naranja-cta);
+            color: var(--blanco);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicion);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .play-btn:hover {
+            background-color: #e05a2b;
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        /* Sección Contacto */
+        .contact-section {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--blanco);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--naranja-cta);
+            color: var(--blanco);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+
+        .submit-btn:hover {
+            background-color: #e05a2b;
+        }
+
+        .contact-info {
+            flex: 1;
+            background-color: var(--azul-primario);
+            color: var(--blanco);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            color: var(--blanco);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-info i {
+            font-size: 1.2rem;
+            width: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gris-oscuro);
+            color: var(--blanco);
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h4, .footer-social h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-links h4::after, .footer-social h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--naranja-cta);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--blanco);
+            text-decoration: none;
+            transition: var(--transicion);
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--blanco);
+            transition: var(--transicion);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--naranja-cta);
+            transform: translateY(-3px);
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .newsletter button {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--naranja-cta);
+            color: var(--blanco);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+
+        .newsletter button:hover {
+            background-color: #e05a2b;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .legal-links a {
+            color: var(--blanco);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: var(--transicion);
+        }
+
+        .legal-links a:hover {
+            opacity: 1;
+        }
+
+        /* Modal de producto */
+        .product-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1002;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background-color: var(--blanco);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--gris-oscuro);
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .modal-image {
+            flex: 1;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-image img {
+            max-width: 100%;
+            max-height: 60vh;
+            object-fit: contain;
+        }
+
+        .modal-info {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--azul-primario);
+            margin-bottom: 1rem;
+        }
+
+        .modal-price {
+            font-size: 1.5rem;
+            color: var(--naranja-cta);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .modal-features {
+            margin-bottom: 2rem;
+        }
+
+        .modal-features h4 {
+            margin-bottom: 1rem;
+            color: var(--azul-primario);
+        }
+
+        .modal-features ul {
+            padding-left: 1.5rem;
+        }
+
+        .modal-features li {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content h2 {
+                font-size: 2.4rem;
+            }
+            
+            .historia, .app-section, .contact-section {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .historia img, .panel-content img {
+                width: 100%;
+            }
+            
+            .panel-content {
+                flex-direction: column;
+            }
+            
+            .modal-content {
+                flex-direction: column;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+            
+            .modal-image {
+                padding: 1rem;
+            }
+            
+            .modal-image img {
+                max-height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-mobile {
+                display: block;
+            }
+            
+            .carrito-sidebar {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-image {
+                margin-top: 2rem;
+            }
+            
+            .valores-grid, .mision-vision, .service-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-actions, .download-buttons, .modal-actions {
+                flex-direction: column;
+            }
+            
+            .btn, .add-to-cart, .quick-view, .app-store-btn, .play-store-btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .contact-form, .contact-info {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Technova</h1>
+        <div class="logo">
+            <img src="https://via.placeholder.com/50x50?text=TN" alt="Technova Logo">
+            <div class="logo-text">
+                <h1>Technova</h1>
+                <p>Innovación en tus manos</p>
+            </div>
+        </div>
+        
+        <nav>
+            <div class="nav-links">
+                <a onclick="showSection('inicio')">Inicio</a>
+                <a onclick="showSection('nosotros')">Nosotros</a>
+                <a onclick="showSection('productos')">Productos</a>
+                <a onclick="showSection('servicios')">Servicios</a>
+                <a onclick="showSection('app')">App</a>
+                <a onclick="showSection('contacto')">Contacto</a>
+            </div>
+            
+            <div class="carrito-icon" onclick="toggleCarrito()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="carrito-contador">0</span>
+            </div>
+            
+            <div class="menu-mobile" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
-    <nav>
-        <a onclick="showSection('inicio')">Inicio</a>
-        <a onclick="showSection('nosotros')">Nosotros</a>
-        <a onclick="showSection('productos')">Productos</a>
-        <a onclick="showSection('servicios')">Servicios</a>
-        <a onclick="showSection('app')">App</a>
-        <a onclick="showSection('videojuego')">Videojuego</a>
-        <a onclick="showSection('contacto')">Contáctenos</a>
-    </nav>
 
+    <!-- Sección Inicio -->
     <section id="inicio" class="active">
-        <h2>Bienvenido a Technova</h2>
-        <p>Ofrecemos lo mejor en tecnología de consumo para transformar tu día a día.</p>
-        <img src="#" alt="Imagen representativa" style="width:100%; max-width:500px; display:block; margin:auto;">
-        <div class="cta">
-            <button onclick="showSection('productos')">Explorar productos</button>
+        <div class="hero">
+            <div class="hero-content">
+                <h2>Tecnología que <span>transforma</span> tu vida</h2>
+                <p>En Technova llevamos la innovación a tus manos con los mejores productos tecnológicos y servicios especializados para que estés siempre conectado.</p>
+                <button class="btn" onclick="showSection('productos')">Explorar productos</button>
+                <button class="btn btn-secondary" onclick="showSection('servicios')">Nuestros servicios</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/600x400?text=TECHNOVA" alt="Dispositivos tecnológicos">
+            </div>
+        </div>
+        
+        <div class="propuesta-valor">
+            <h2>Nuestra Propuesta de Valor</h2>
+            <p>En Technova no solo vendemos tecnología, creamos experiencias que mejoran tu calidad de vida y potencian tu productividad.</p>
+            
+            <div class="valores-grid">
+                <div class="valor-card">
+                    <div class="valor-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Innovación Constante</h3>
+                    <p>Siempre a la vanguardia con los últimos lanzamientos tecnológicos del mercado.</p>
+                </div>
+                
+                <div class="valor-card">
+                    <div class="valor-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Soporte Experto</h3>
+                    <p>Asesoría personalizada y soporte técnico especializado cuando lo necesites.</p>
+                </div>
+                
+                <div class="valor-card">
+                    <div class="valor-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Garantía Extendida</h3>
+                    <p>Protección premium para todos tus dispositivos con cobertura ampliada.</p>
+                </div>
+                
+                <div class="valor-card">
+                    <div class="valor-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Envío Rápido</h3>
+                    <p>Recibe tus productos en tiempo récord con nuestro servicio de entrega express.</p>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Sección Nosotros -->
     <section id="nosotros">
-        <h2>Historia de la empresa</h2>
-        <p>Nuestra historia comienza...</p>
-        <h3>Misión</h3><img src="#" alt="Misión"><p>Descripción de la misión.</p>
-        <h3>Visión</h3><img src="#" alt="Visión"><p>Descripción de la visión.</p>
-        <h3>Objetivos</h3><img src="#" alt="Objetivos"><p>Nuestros objetivos.</p>
-        <h3>Valores</h3><img src="#" alt="Valores"><p>Valores fundamentales.</p>
-    </section>
-
-    <section id="productos">
-        <h2>Productos</h2>
-        <div class="product">
-            <h3>Celular XYZ</h3>
-            <p>Potente, moderno, excelente cámara.</p>
-            <button onclick="agregarAlCarrito('Celular XYZ')">Añadir al carrito</button>
+        <h2>Nuestra Historia</h2>
+        <div class="historia">
+            <div>
+                <p>Fundada en 2015 por un grupo de apasionados por la tecnología, Technova comenzó como un pequeño emprendimiento con la visión de hacer accesible la última tecnología a todos los bolsillos. Lo que empezó como una tienda online de componentes electrónicos hoy es una de las distribuidoras más importantes del país.</p>
+                <p>Nuestro crecimiento ha sido orgánico, siempre enfocados en la satisfacción del cliente y en mantenernos a la vanguardia de las tendencias tecnológicas. Hoy contamos con 5 tiendas físicas y un centro de distribución de 10,000 m².</p>
+            </div>
+            <img src="https://via.placeholder.com/500x300?text=Equipo+Technova" alt="Equipo Technova">
         </div>
-        <div class="product">
-            <h3>Computador ABC</h3>
-            <p>Rendimiento alto para trabajo y gaming.</p>
-            <button onclick="agregarAlCarrito('Computador ABC')">Añadir al carrito</button>
-        </div>
-        <div class="product">
-            <h3>SmartWatch 123</h3>
-            <p>Controla tu salud desde la muñeca.</p>
-            <button onclick="agregarAlCarrito('SmartWatch 123')">Añadir al carrito</button>
-        </div>
-        <div class="product">
-            <h3>Televisor UltraHD</h3>
-            <p>Resolución 4K, gran tamaño y conectividad.</p>
-            <button onclick="agregarAlCarrito('Televisor UltraHD')">Añadir al carrito</button>
-        </div>
-        <div id="carrito">
-            <h3>Carrito de compras</h3>
-            <ul id="lista-carrito"></ul>
-        </div>
-    </section>
-
-    <section id="servicios">
-        <h2>Servicios</h2>
-        <h3>Reparación de equipos</h3><img src="#" alt="Reparación">
-        <h3>Asesoría personalizada</h3>
-        <p>Contáctanos: WhatsApp | Instagram | Correo electrónico</p>
-        <h3>Envío a domicilio</h3>
-        <p>Formulario para datos de envío</p>
-    </section>
-
-    <section id="app">
-        <h2>Descarga nuestra App</h2>
-        <p>Escanea el código QR para descargar la aplicación.</p>
-        <img src="#" alt="QR App">
-    </section>
-
-    <section id="videojuego">
-        <h2>Videojuego Technova</h2>
-        <p>Instrucciones del videojuego...</p>
-        <a href="#">Jugar ahora</a>
-    </section>
-
-    <section id="contacto">
-        <h2>Contáctanos</h2>
-        <form>
-            <label>Nombre:<br><input type="text" name="nombre"></label><br>
-            <label>Correo:<br><input type="email" name="correo"></label><br>
-            <label>Mensaje:<br><textarea name="mensaje" rows="5"></textarea></label><br>
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Technova. Todos los derechos reservados.</p>
-    </footer>
-
-    <script>
-        function showSection(id) {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(s => {
-                if (s.classList.contains('active')) {
-                    s.classList.remove('active');
-                    s.style.opacity = 0;
-                    setTimeout(() => {
-                        s.style.display = 'none';
-                    }, 400); // coincide con la duración de la transición
-                }
-            });
-
-            const target = document.getElementById(id);
-            target.style.display = 'block';
-            target.style.opacity = 0; // Asegurar que inicie invisible
-            setTimeout(() => {
-                target.classList.add('active');
-                target.style.opacity = 1;
-            }, 10); // Esperar un momento para que el navegador registre el cambio
-        }
-
-        const carrito = [];
-        function agregarAlCarrito(producto) {
-            carrito.push(producto);
-            actualizarCarrito();
-        }
-
-        function actualizarCarrito() {
-            const lista = document.getElementById('lista-carrito');
-            lista.innerHTML = '';
-            carrito.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = item;
-                lista.appendChild(li);
-            });
-        }
-    </script>
-</body>
-</html>
+        
+        <div class="mision-vision">
+            <div class="mv-card">
+                <h3>Misión</h3>
+                <p>Proveer soluciones tecnológicas innov
