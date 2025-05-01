@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technova - Innovación Tecnológica</title>
+    <title>Technova - Nosotros</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -141,21 +141,11 @@
             cursor: pointer;
         }
 
-        /* Secciones */
+        /* Sección Nosotros */
         section {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s ease, transform 0.5s ease;
             padding: 3rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            transform: translateY(20px);
-        }
-
-        section.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
         }
 
         h2 {
@@ -189,116 +179,7 @@
             margin-bottom: 1rem;
         }
 
-        /* Sección Inicio */
-        #inicio .hero {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .hero-content {
-            flex: 1;
-        }
-
-        .hero-content h2 {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        .hero-content h2 span {
-            color: var(--naranja-cta);
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .hero-image {
-            flex: 1;
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: var(--sombra);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            background-color: var(--naranja-cta);
-            color: var(--blanco);
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transicion);
-            box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
-        }
-
-        .btn:hover {
-            background-color: #e05a2b;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(255, 107, 53, 0.4);
-        }
-
-        .btn-secondary {
-            background-color: var(--azul-primario);
-            box-shadow: 0 4px 8px rgba(42, 92, 139, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background-color: #234a73;
-            box-shadow: 0 6px 12px rgba(42, 92, 139, 0.4);
-        }
-
-        .propuesta-valor {
-            background-color: var(--blanco);
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: var(--sombra);
-            margin-top: 3rem;
-        }
-
-        .valores-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .valor-card {
-            background-color: var(--gris-claro);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: var(--transicion);
-        }
-
-        .valor-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--sombra);
-        }
-
-        .valor-icon {
-            font-size: 2.5rem;
-            color: var(--naranja-cta);
-            margin-bottom: 1rem;
-        }
-
-        /* Sección Nosotros */
+        /* Historia */
         .historia {
             display: flex;
             gap: 3rem;
@@ -312,31 +193,62 @@
             box-shadow: var(--sombra);
         }
 
-        .mision-vision {
+        /* Misión, Visión, Objetivos */
+        .mision-vision-objetivos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
 
-        .mv-card {
+        .mvo-card {
             background-color: var(--blanco);
             padding: 2rem;
             border-radius: 10px;
             box-shadow: var(--sombra);
             transition: var(--transicion);
+            position: relative;
+            overflow: hidden;
         }
 
-        .mv-card:hover {
+        .mvo-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        .mv-card img {
+        .mvo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--naranja-cta);
+        }
+
+        .mvo-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .mvo-card i {
+            font-size: 1.8rem;
+            color: var(--naranja-cta);
+        }
+
+        .mvo-card img {
             width: 100%;
             border-radius: 8px;
             margin-top: 1rem;
+            transition: transform 0.5s ease;
         }
 
+        .mvo-card:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Valores */
         .valores-accordion {
             margin-top: 3rem;
         }
@@ -398,767 +310,14 @@
             border-radius: 8px;
         }
 
-        /* Sección Productos */
-        .category-filters {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .filter-btn {
-            padding: 0.6rem 1.2rem;
-            background-color: var(--gris-claro);
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transicion);
-            font-weight: 500;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--azul-primario);
-            color: var(--blanco);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card {
-            background-color: var(--blanco);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--sombra);
-            transition: var(--transicion);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-
-        .product-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .product-img img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 1.5rem;
-        }
-
-        .product-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--azul-primario);
-        }
-
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--naranja-cta);
-            margin: 0.5rem 0;
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .add-to-cart {
-            flex: 1;
-            padding: 0.6rem;
-            background-color: var(--verde-cta);
-            color: var(--blanco);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transicion);
-            font-weight: 500;
-        }
-
-        .add-to-cart:hover {
-            background-color: #3db8b0;
-        }
-
-        .quick-view {
-            padding: 0.6rem;
-            background-color: var(--azul-primario);
-            color: var(--blanco);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transicion);
-            font-weight: 500;
-        }
-
-        .quick-view:hover {
-            background-color: #234a73;
-        }
-
-        /* Carrito de compras */
-        .carrito-sidebar {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 400px;
-            height: 100vh;
-            background-color: var(--blanco);
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-            z-index: 1001;
-            transition: right 0.3s ease;
-            padding: 2rem;
-            overflow-y: auto;
-        }
-
-        .carrito-sidebar.active {
-            right: 0;
-        }
-
-        .carrito-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .close-carrito {
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gris-oscuro);
-        }
-
-        .carrito-lista {
-            list-style: none;
-        }
-
-        .carrito-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .carrito-item-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .carrito-item-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .carrito-item-info {
-            flex: 1;
-        }
-
-        .carrito-item-title {
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .carrito-item-price {
-            color: var(--naranja-cta);
-            font-weight: 600;
-        }
-
-        .carrito-item-remove {
-            color: #ff4d4d;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        .carrito-total {
-            margin-top: 1.5rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-align: right;
-        }
-
-        .carrito-total span {
-            color: var(--naranja-cta);
-        }
-
-        .carrito-checkout {
-            width: 100%;
-            padding: 1rem;
-            margin-top: 1rem;
-            background-color: var(--naranja-cta);
-            color: var(--blanco);
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transicion);
-        }
-
-        .carrito-checkout:hover {
-            background-color: #e05a2b;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 1000;
-            display: none;
-        }
-
-        .overlay.active {
-            display: block;
-        }
-
-        /* Notificación */
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--verde-cta);
-            color: var(--blanco);
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1002;
-        }
-
-        .notification.show {
-            opacity: 1;
-        }
-
-        /* Sección Servicios */
-        .service-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .service-card {
-            background-color: var(--blanco);
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: var(--sombra);
-            transition: var(--transicion);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-card img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .whatsapp-btn {
-            background-color: #25D366;
-            color: var(--blanco);
-            border: none;
-            padding: 0.6rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transicion);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .instagram-btn {
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-            color: var(--blanco);
-            border: none;
-            padding: 0.6rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transicion);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .shipping-form input {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-        }
-
-        /* Sección App */
-        .app-section {
-            display: flex;
-            gap: 3rem;
-            align-items: center;
-            margin-top: 2rem;
-        }
-
-        .app-content {
-            flex: 1;
-        }
-
-        .qr-code {
-            background-color: var(--blanco);
-            padding: 1.5rem;
-            border-radius: 10px;
-            display: inline-block;
-            box-shadow: var(--sombra);
-            margin: 1.5rem 0;
-        }
-
-        .qr-code img {
-            width: 150px;
-            height: 150px;
-        }
-
-        .download-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .app-store-btn, .play-store-btn {
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transicion);
-        }
-
-        .app-store-btn {
-            background-color: #000;
-            color: var(--blanco);
-        }
-
-        .play-store-btn {
-            background-color: #0F9D58;
-            color: var(--blanco);
-        }
-
-        .game-section {
-            flex: 1;
-            background-color: var(--blanco);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--sombra);
-        }
-
-        .game-preview {
-            margin-top: 1.5rem;
-            position: relative;
-        }
-
-        .game-preview img {
-            width: 100%;
-            border-radius: 8px;
-        }
-
-        .play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: var(--naranja-cta);
-            color: var(--blanco);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transicion);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .play-btn:hover {
-            background-color: #e05a2b;
-            transform: translate(-50%, -50%) scale(1.05);
-        }
-
-        /* Sección Contacto */
-        .contact-section {
-            display: flex;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .contact-form {
-            flex: 1;
-            background-color: var(--blanco);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--sombra);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background-color: var(--naranja-cta);
-            color: var(--blanco);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transicion);
-        }
-
-        .submit-btn:hover {
-            background-color: #e05a2b;
-        }
-
-        .contact-info {
-            flex: 1;
-            background-color: var(--azul-primario);
-            color: var(--blanco);
-            padding: 2rem;
-            border-radius: 10px;
-        }
-
-        .contact-info h3 {
-            color: var(--blanco);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .contact-info i {
-            font-size: 1.2rem;
-            width: 30px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--gris-oscuro);
-            color: var(--blanco);
-            padding: 3rem 2rem 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo img {
-            height: 50px;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links h4, .footer-social h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-links h4::after, .footer-social h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--naranja-cta);
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: var(--blanco);
-            text-decoration: none;
-            transition: var(--transicion);
-            opacity: 0.8;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            padding-left: 5px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--blanco);
-            transition: var(--transicion);
-        }
-
-        .social-icons a:hover {
-            background-color: var(--naranja-cta);
-            transform: translateY(-3px);
-        }
-
-        .newsletter input {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 0.5rem;
-            border: none;
-            border-radius: 5px;
-            font-family: inherit;
-        }
-
-        .newsletter button {
-            width: 100%;
-            padding: 0.8rem;
-            background-color: var(--naranja-cta);
-            color: var(--blanco);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transicion);
-        }
-
-        .newsletter button:hover {
-            background-color: #e05a2b;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .legal-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .legal-links a {
-            color: var(--blanco);
-            text-decoration: none;
-            opacity: 0.7;
-            transition: var(--transicion);
-        }
-
-        .legal-links a:hover {
-            opacity: 1;
-        }
-
-        /* Modal de producto */
-        .product-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            z-index: 1002;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .product-modal.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .modal-content {
-            background-color: var(--blanco);
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: var(--gris-oscuro);
-            cursor: pointer;
-            z-index: 1;
-        }
-
-        .modal-image {
-            flex: 1;
-            background-color: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        .modal-image img {
-            max-width: 100%;
-            max-height: 60vh;
-            object-fit: contain;
-        }
-
-        .modal-info {
-            flex: 1;
-            padding: 2rem;
-            overflow-y: auto;
-        }
-
-        .modal-title {
-            font-size: 1.8rem;
-            color: var(--azul-primario);
-            margin-bottom: 1rem;
-        }
-
-        .modal-price {
-            font-size: 1.5rem;
-            color: var(--naranja-cta);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-description {
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .modal-features {
-            margin-bottom: 2rem;
-        }
-
-        .modal-features h4 {
-            margin-bottom: 1rem;
-            color: var(--azul-primario);
-        }
-
-        .modal-features ul {
-            padding-left: 1.5rem;
-        }
-
-        .modal-features li {
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero-content h2 {
-                font-size: 2.4rem;
-            }
-            
-            .historia, .app-section, .contact-section {
+            .historia, .panel-content {
                 flex-direction: column;
-                gap: 2rem;
             }
             
             .historia img, .panel-content img {
                 width: 100%;
-            }
-            
-            .panel-content {
-                flex-direction: column;
-            }
-            
-            .modal-content {
-                flex-direction: column;
-                max-height: 90vh;
-                overflow-y: auto;
-            }
-            
-            .modal-image {
-                padding: 1rem;
-            }
-            
-            .modal-image img {
-                max-height: 200px;
             }
         }
 
@@ -1184,47 +343,15 @@
             .menu-mobile {
                 display: block;
             }
-            
-            .carrito-sidebar {
-                width: 100%;
-                max-width: 100%;
-            }
-            
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-content p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .hero-image {
-                margin-top: 2rem;
-            }
-            
-            .valores-grid, .mision-vision, .service-cards {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 480px) {
-            .product-actions, .download-buttons, .modal-actions {
-                flex-direction: column;
-            }
-            
-            .btn, .add-to-cart, .quick-view, .app-store-btn, .play-store-btn {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .contact-form, .contact-info {
-                padding: 1.5rem;
-            }
-            
-            .footer-content {
+            .mision-vision-objetivos {
                 grid-template-columns: 1fr;
+            }
+            
+            .panel-content {
+                flex-direction: column;
             }
         }
     </style>
@@ -1241,17 +368,11 @@
         
         <nav>
             <div class="nav-links">
-                <a href="#" onclick="showSection('inicio'); return false;">Inicio</a>
-                <a href="#" onclick="showSection('nosotros'); return false;">Nosotros</a>
-                <a href="#" onclick="showSection('productos'); return false;">Productos</a>
-                <a href="#" onclick="showSection('servicios'); return false;">Servicios</a>
-                <a href="#" onclick="showSection('app'); return false;">App</a>
-                <a href="#" onclick="showSection('contacto'); return false;">Contacto</a>
-            </div>
-            
-            <div class="carrito-icon" onclick="toggleCarrito()">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="carrito-contador">0</span>
+                <a href="index.html">Inicio</a>
+                <a href="#" class="active">Nosotros</a>
+                <a href="productos.html">Productos</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="contacto.html">Contacto</a>
             </div>
             
             <div class="menu-mobile" onclick="toggleMobileMenu()">
@@ -1260,51 +381,155 @@
         </nav>
     </header>
 
-    <!-- Overlay para menús -->
-    <div class="overlay" onclick="closeAllMenus()"></div>
-
-    <!-- Carrito de compras -->
-    <div class="carrito-sidebar">
-        <div class="carrito-header">
-            <h3>Tu Carrito</h3>
-            <span class="close-carrito" onclick="toggleCarrito()">&times;</span>
-        </div>
-        <ul class="carrito-lista"></ul>
-        <div class="carrito-total">
-            Total: <span>$0.00</span>
-        </div>
-        <button class="carrito-checkout">Proceder al Pago</button>
-    </div>
-
-    <!-- Sección Inicio -->
-    <section id="inicio" class="active">
-        <div class="hero">
-            <div class="hero-content">
-                <h2>Tecnología que <span>transforma</span> tu vida</h2>
-                <p>En Technova llevamos la innovación a tus manos con los mejores productos tecnológicos y servicios especializados para que estés siempre conectado.</p>
-                <button class="btn" onclick="showSection('productos')">Explorar productos</button>
-                <button class="btn btn-secondary" onclick="showSection('servicios')">Nuestros servicios</button>
+    <section id="nosotros">
+        <h2>Nuestra Historia</h2>
+        <div class="historia">
+            <div>
+                <p>Fundada en 2015 por un grupo de apasionados por la tecnología, Technova comenzó como un pequeño emprendimiento con la visión de hacer accesible la última tecnología a todos los bolsillos. Lo que empezó como una tienda online de componentes electrónicos hoy es una de las distribuidoras más importantes del país.</p>
+                <p>Nuestro crecimiento ha sido orgánico, siempre enfocados en la satisfacción del cliente y en mantenernos a la vanguardia de las tendencias tecnológicas. Hoy contamos con 5 tiendas físicas y un centro de distribución de 10,000 m².</p>
             </div>
-            <div class="hero-image">
-                <img src="https://via.placeholder.com/600x400?text=TECHNOVA" alt="Dispositivos tecnológicos">
+            <img src="https://via.placeholder.com/600x400?text=Equipo+Technova" alt="Equipo Technova">
+        </div>
+        
+        <h2>Nuestros Pilares</h2>
+        <div class="mision-vision-objetivos">
+            <div class="mvo-card">
+                <h3><i class="fas fa-bullseye"></i>Misión</h3>
+                <p>Proveer soluciones tecnológicas innovadoras que mejoren la calidad de vida de las personas y potencien la productividad de las empresas, ofreciendo productos de calidad, soporte experto y un servicio personalizado que supere las expectativas de nuestros clientes.</p>
+                <img src="https://via.placeholder.com/500x300?text=Misión+Technova" alt="Misión Technova">
+            </div>
+            
+            <div class="mvo-card">
+                <h3><i class="fas fa-eye"></i>Visión</h3>
+                <p>Ser reconocidos como el referente en distribución tecnológica en América Latina para el 2030, destacándonos por nuestra capacidad de innovación, compromiso con la excelencia y contribución al desarrollo tecnológico de la región.</p>
+                <img src="https://via.placeholder.com/500x300?text=Visión+Technova" alt="Visión Technova">
+            </div>
+            
+            <div class="mvo-card">
+                <h3><i class="fas fa-tasks"></i>Objetivos</h3>
+                <p>1. Expandir nuestra red de distribución a 15 países en los próximos 5 años.</p>
+                <p>2. Implementar programas de responsabilidad social que lleven tecnología a comunidades vulnerables.</p>
+                <p>3. Desarrollar nuestra propia línea de productos tecnológicos para 2026.</p>
+                <img src="https://via.placeholder.com/500x300?text=Objetivos+Technova" alt="Objetivos Technova">
             </div>
         </div>
         
-        <div class="propuesta-valor">
-            <h2>Nuestra Propuesta de Valor</h2>
-            <p>En Technova no solo vendemos tecnología, creamos experiencias que mejoran tu calidad de vida y potencian tu productividad.</p>
+        <div class="valores-accordion">
+            <h2>Nuestros Valores</h2>
             
-            <div class="valores-grid">
-                <div class="valor-card">
-                    <div class="valor-icon">
-                        <i class="fas fa-bolt"></i>
+            <div class="accordion-item">
+                <button class="accordion-btn">Innovación</button>
+                <div class="panel">
+                    <div class="panel-content">
+                        <div>
+                            <p>Buscamos constantemente nuevas formas de mejorar y ofrecer soluciones tecnológicas de vanguardia. Fomentamos la creatividad y el pensamiento disruptivo en todo nuestro equipo.</p>
+                            <p>Cada año destinamos el 10% de nuestras utilidades a investigación y desarrollo de nuevas tecnologías.</p>
+                        </div>
+                        <img src="https://via.placeholder.com/400x300?text=Innovación" alt="Innovación">
                     </div>
-                    <h3>Innovación Constante</h3>
-                    <p>Siempre a la vanguardia con los últimos lanzamientos tecnológicos del mercado.</p>
                 </div>
-                
-                <div class="valor-card">
-                    <div class="valor-icon">
-                        <i class="fas fa-headset"></i>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-btn">Integridad</button>
+                <div class="panel">
+                    <div class="panel-content">
+                        <div>
+                            <p>Actuamos con honestidad, transparencia y ética en todas nuestras relaciones comerciales. Cumplimos nuestros compromisos y somos responsables por nuestras acciones.</p>
+                            <p>Hemos sido reconocidos por 3 años consecutivos como una de las empresas más éticas del sector tecnológico.</p>
+                        </div>
+                        <img src="https://via.placeholder.com/400x300?text=Integridad" alt="Integridad">
                     </div>
-                    <h3>Soporte Experto</h
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-btn">Excelencia</button>
+                <div class="panel">
+                    <div class="panel-content">
+                        <div>
+                            <p>Nos esforzamos por superar las expectativas en cada aspecto de nuestro trabajo, desde la calidad de nuestros productos hasta la atención al cliente.</p>
+                            <p>Contamos con certificaciones ISO 9001:2015 que avalan nuestros procesos de calidad.</p>
+                        </div>
+                        <img src="https://via.placeholder.com/400x300?text=Excelencia" alt="Excelencia">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-btn">Trabajo en Equipo</button>
+                <div class="panel">
+                    <div class="panel-content">
+                        <div>
+                            <p>Creemos en el poder de la colaboración y el respeto mutuo. Fomentamos un ambiente inclusivo donde cada voz es escuchada y valorada.</p>
+                            <p>Realizamos actividades de team building trimestrales para fortalecer nuestras relaciones internas.</p>
+                        </div>
+                        <img src="https://via.placeholder.com/400x300?text=Trabajo+en+Equipo" alt="Trabajo en Equipo">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-btn">Sostenibilidad</button>
+                <div class="panel">
+                    <div class="panel-content">
+                        <div>
+                            <p>Nos comprometemos con el desarrollo sostenible, minimizando nuestro impacto ambiental y promoviendo prácticas comerciales responsables.</p>
+                            <p>Hemos reducido nuestro consumo energético en un 40% mediante la implementación de tecnologías limpias en nuestras instalaciones.</p>
+                        </div>
+                        <img src="https://via.placeholder.com/400x300?text=Sostenibilidad" alt="Sostenibilidad">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Acordeón de valores
+        const accordionButtons = document.querySelectorAll('.accordion-btn');
+        
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('active');
+                const panel = button.nextElementSibling;
+                
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        });
+        
+        // Menú móvil
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const overlay = document.createElement('div');
+            overlay.className = 'overlay-mobile';
+            overlay.onclick = toggleMobileMenu;
+            
+            navLinks.classList.toggle('active');
+            
+            if (navLinks.classList.contains('active')) {
+                document.body.appendChild(overlay);
+                document.body.style.overflow = 'hidden';
+            } else {
+                const existingOverlay = document.querySelector('.overlay-mobile');
+                if (existingOverlay) {
+                    document.body.removeChild(existingOverlay);
+                }
+                document.body.style.overflow = '';
+            }
+        }
+        
+        // Cerrar menú al seleccionar una opción (para móviles)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
