@@ -1,194 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechNova - Página Oficial</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technova | Innovación Tecnológica</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- Encabezado -->
-  <header>
-    <div class="logo">
-      <img src="https://via.placeholder.com/50x50?text=TN" alt="Technova Logo">
-      <div class="logo-text">
-        <h1>Technova</h1>
-        <p>Innovación en tus manos</p>
-      </div>
-    </div>
-    <nav>
-      <div class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#productos">Productos</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#blog">Blog</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-      <div class="carrito-icon">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="carrito-contador" id="contador-carrito">0</span>
-      </div>
-      <div class="menu-mobile" onclick="toggleMobileMenu()">
-        <i class="fas fa-bars"></i>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Página de inicio -->
-  <section class="landing">
-    <div class="landing-content">
-      <h1>TechNova</h1>
-      <p>Potencia tu mundo con innovación</p>
-      <a href="#productos" class="btn-cta">Explorar Productos</a>
-    </div>
-  </section>
-
-  <!-- Nosotros -->
-  <section id="nosotros">
-    <h2 class="anim-fade-up">Nuestra Historia</h2>
-    <div class="historia anim-fade-left">
-      <div>
-        <p>Fundada en 2015 por apasionados de la tecnología. Lo que empezó como una tienda online es ahora una de las distribuidoras más importantes del país.</p>
-      </div>
-      <img src="https://via.placeholder.com/600x400?text=Equipo+Technova" alt="Equipo Technova">
-    </div>
-    <h3>Misión</h3>
-    <p>Brindar soluciones tecnológicas innovadoras que mejoren la vida de las personas y empresas.</p>
-    <h3>Visión</h3>
-    <p>Ser referentes en tecnología en América Latina para 2030.</p>
-    <h3>Objetivos</h3>
-    <ul>
-      <li>Expandir operaciones a 15 países en 5 años.</li>
-      <li>Crear una línea propia de productos.</li>
-      <li>Implementar programas sociales tecnológicos.</li>
-    </ul>
-    <h3>Valores</h3>
-    <ul>
-      <li>Innovación</li>
-      <li>Integridad</li>
-      <li>Excelencia</li>
-      <li>Trabajo en equipo</li>
-      <li>Sostenibilidad</li>
-    </ul>
-  </section>
-
-  <!-- Productos -->
-  <section id="productos" class="productos-section">
-    <h2 class="anim-fade-up">Nuestros Productos</h2>
-    <div class="productos-grid">
-      <div class="producto-card anim-fade-up">
-        <img src="https://via.placeholder.com/300x200?text=Celulares" alt="Celulares">
-        <h3>Celulares</h3>
-        <p>Smartphones de última generación para todos los gustos y necesidades.</p>
-        <span class="precio">Desde $899.000</span>
-        <button class="btn-comprar">Agregar al carrito</button>
-      </div>
-      <div class="producto-card anim-fade-up">
-        <img src="https://via.placeholder.com/300x200?text=Computadores" alt="Computadores">
-        <h3>Computadores</h3>
-        <p>Equipos de alto rendimiento para trabajo, estudio o gaming.</p>
-        <span class="precio">Desde $2.199.000</span>
-        <button class="btn-comprar">Agregar al carrito</button>
-      </div>
-      <div class="producto-card anim-fade-up">
-        <img src="https://via.placeholder.com/300x200?text=Smartwatch" alt="Smartwatch">
-        <h3>Relojes Smartwatch</h3>
-        <p>Monitorea tu salud, recibe notificaciones y mejora tu productividad.</p>
-        <span class="precio">Desde $599.000</span>
-        <button class="btn-comprar">Agregar al carrito</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Servicios -->
-  <section id="servicios" class="productos-section">
-    <h2 class="anim-fade-up">Nuestros Servicios</h2>
-    <div class="productos-grid">
-      <div class="producto-card anim-fade-up">
-        <img src="https://via.placeholder.com/300x200?text=Reparaciones" alt="Reparaciones">
-        <h3>Reparación de Equipos</h3>
-        <p>Soluciones rápidas y confiables para tus dispositivos dañados.</p>
-      </div>
-      <div class="producto-card anim-fade-up">
-        <img src="https://via.placeholder.com/300x200?text=Asesorias" alt="Asesorías">
-        <h3>Asesorías Personalizadas</h3>
-        <p>Expertos listos para ayudarte a elegir la mejor tecnología para ti.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog -->
-  <section id="blog" class="blog-section">
-    <h2 class="anim-fade-up">Últimos Artículos del Blog</h2>
-    <div class="blog-grid">
-      <div class="blog-card anim-fade-up">
-        <img src="https://via.placeholder.com/400x200?text=IA" alt="IA">
-        <div class="blog-content">
-          <h3>El impacto de la IA</h3>
-          <p>Descubre cómo la IA...</p>
-          <a href="#" class="blog-btn">Leer más</a>
+    <!-- Encabezado -->
+    <header class="header">
+        <div class="logo">
+            <img src="assets/logo.png" alt="Technova">
+            <h1>TECHNOVA</h1>
+            <p class="slogan">Innovación a tu alcance</p>
         </div>
-      </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#carrito"><i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Sección Inicio -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h2>Tecnología que Inspira</h2>
+                <p>Descubre los mejores dispositivos y servicios tecnológicos del mercado.</p>
+                <button class="cta">Explorar Productos</button>
+            </div>
+            <img src="assets/tech-hero.jpg" alt="Tecnología">
+        </section>
+
+        <!-- Sección Nosotros -->
+        <section id="nosotros" class="about">
+            <h2>Nosotros</h2>
+            <div class="about-grid">
+                <div class="card">
+                    <h3>Misión</h3>
+                    <p>Ofrecer tecnología de calidad con un servicio excepcional.</p>
+                    <img src="assets/mision.jpg" alt="Misión">
+                </div>
+                <div class="card">
+                    <h3>Visión</h3>
+                    <p>Ser líderes en innovación tecnológica en 2025.</p>
+                    <img src="assets/vision.jpg" alt="Visión">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Productos (con carrito) -->
+        <section id="productos" class="products">
+            <h2>Productos</h2>
+            <div class="product-grid" id="product-list">
+                <!-- Productos se cargan con JavaScript -->
+            </div>
+        </section>
+
+        <!-- Sección Servicios -->
+        <section id="servicios" class="services">
+            <h2>Servicios</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Reparación de Equipos</h3>
+                    <img src="assets/reparacion.jpg" alt="Reparación">
+                    <button class="cta">Solicitar Servicio</button>
+                </div>
+                <div class="service-card">
+                    <h3>Envío a Domicilio</h3>
+                    <img src="assets/envio.jpg" alt="Envío">
+                    <button class="cta">Pedir Ahora</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="contact">
+            <h2>Contáctenos</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Correo" required>
+                <textarea placeholder="Mensaje" required></textarea>
+                <button type="submit" class="cta">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>© 2023 Technova. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Carrito de Compras (Modal) -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div id="cart-items"></div>
+            <button id="checkout" class="cta">Pagar</button>
+        </div>
     </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <h2>¿Estás listo para dar el siguiente paso?</h2>
-    <div class="cta-buttons">
-      <a href="#productos" class="btn-cta">Comprar ahora</a>
-      <a href="#" class="btn-cta">Descargar App</a>
-      <a href="#contacto" class="btn-cta">Agendar Asesoría</a>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto" class="contacto-section">
-    <h2>Contáctanos</h2>
-    <form class="contacto-form" action="https://formspree.io/f/tu_codigo_aqui" method="POST">
-      <input type="hidden" name="_redirect" value="https://tusitio.netlify.app/gracias.html">
-      <div class="campo">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" required>
-      </div>
-      <div class="campo">
-        <label for="correo">Correo electrónico</label>
-        <input type="email" id="correo" name="correo" required>
-      </div>
-      <div class="campo">
-        <label for="telefono">Número de celular</label>
-        <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{10}">
-      </div>
-      <div class="campo">
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-      </div>
-      <button type="submit" class="btn-enviar">Enviar mensaje</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="main-footer">
-    <p>&copy; 2025 TechNova. Todos los derechos reservados.</p>
-  </footer>
-
-  <script>
-    // Carrito
-    let contador = 0;
-    document.querySelectorAll('.btn-comprar').forEach(boton => {
-      boton.addEventListener('click', () => {
-        contador++;
-        document.getElementById('contador-carrito').textContent = contador;
-      });
-    });
-
-    // Menú móvil
-    function toggleMobileMenu() {
-      const navLinks = document.querySelector('.nav-links');
-      navLinks.classList.toggle('active');
-    }
-  </script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>
