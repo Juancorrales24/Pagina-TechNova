@@ -1,45 +1,47 @@
-// Datos de Productos
-const products = [
-    { id: 1, name: "iPhone 13", price: 999, category: "Celulares", image: "assets/iphone.jpg" },
-    { id: 2, name: "MacBook Pro", price: 1299, category: "Computadores", image: "assets/macbook.jpg" },
-    { id: 3, name: "Samsung Smart TV", price: 799, category: "Televisores", image: "assets/tv.jpg" },
-    { id: 4, name: "Apple Watch", price: 399, category: "Relojes", image: "assets/watch.jpg" }
-];
-
-// Carrito de Compras
-let cart = [];
+// Menú Hamburguesa (Mobile)
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+    document.querySelector('.menu').classList.toggle('active');
+});
 
 // Cargar Productos
+const products = [
+    { id: 1, name: "iPhone 14 Pro", price: 999, image: "assets/images/iphone.jpg" },
+    { id: 2, name: "MacBook Pro", price: 1299, image: "assets/images/macbook.jpg" },
+    { id: 3, name: "Samsung Galaxy", price: 799, image: "assets/images/samsung.jpg" },
+    { id: 4, name: "Apple Watch", price: 399, image: "assets/images/watch.jpg" }
+];
+
 function loadProducts() {
-    const productList = document.getElementById("product-list");
-    productList.innerHTML = "";
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = '';
 
     products.forEach(product => {
-        const productCard = document.createElement("div");
-        productCard.className = "product-card";
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
         productCard.innerHTML = `
             <img src="${product.image}" alt="${product.name}">
             <h3>${product.name}</h3>
-            <p>$${product.price}</p>
-            <button onclick="addToCart(${product.id})" class="cta">Añadir al Carrito</button>
+            <p class="price">$${product.price}</p>
+            <button class="add-to-cart" onclick="addToCart(${product.id})">Añadir al Carrito</button>
         `;
         productList.appendChild(productCard);
     });
 }
 
-// Añadir al Carrito
+// Carrito de Compras
+let cart = [];
+
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     cart.push(product);
     updateCartCount();
 }
 
-// Actualizar Contador del Carrito
 function updateCartCount() {
-    document.getElementById("cart-count").textContent = cart.length;
+    document.getElementById('cart-count').textContent = cart.length;
 }
 
-// Inicializar Página
-document.addEventListener("DOMContentLoaded", () => {
+// Inicializar
+document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
 });
