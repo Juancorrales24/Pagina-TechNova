@@ -3,34 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechNova - Página Oficial</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+  <title>TechNova | Página Oficial</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <!-- Encabezado -->
   <header>
     <div class="logo">
-      <img src="https://via.placeholder.com/50x50?text=TN" alt="Technova Logo">
+      <img src="assets/logo.png" alt="TechNova Logo" />
       <div class="logo-text">
-        <h1>Technova</h1>
+        <h1>TechNova</h1>
         <p>Innovación en tus manos</p>
       </div>
     </div>
     <nav>
-      <div class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#productos">Productos</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#blog">Blog</a>
-        <a href="#contacto">Contacto</a>
-      </div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
       <div class="carrito-icon">
         <i class="fas fa-shopping-cart"></i>
         <span class="carrito-contador" id="contador-carrito">0</span>
@@ -41,94 +35,31 @@
     </nav>
   </header>
 
-  <!-- Landing -->
+  <!-- Inicio -->
   <section id="inicio" class="landing">
     <div class="landing-content">
-      <h1>TechNova</h1>
-      <p>Potencia tu mundo con innovación</p>
+      <h1>Explora lo Mejor en Tecnología</h1>
+      <p>Desde celulares hasta smartwatches, ofrecemos lo último en innovación.</p>
       <a href="#productos" class="btn-cta">Explorar Productos</a>
     </div>
   </section>
 
-  <!-- Nosotros -->
-  <section id="nosotros">
-    <h2>Nuestra Historia</h2>
-    <p>Fundada en 2015 por apasionados de la tecnología. Lo que empezó como una tienda online es ahora una de las distribuidoras más importantes del país.</p>
-    <h3>Misión</h3>
-    <p>Brindar soluciones tecnológicas innovadoras que mejoren la vida de las personas y empresas.</p>
-    <h3>Visión</h3>
-    <p>Ser referentes en tecnología en América Latina para 2030.</p>
-    <h3>Objetivos</h3>
-    <ul>
-      <li>Expandir operaciones a 15 países en 5 años.</li>
-      <li>Crear una línea propia de productos.</li>
-      <li>Implementar programas sociales tecnológicos.</li>
-    </ul>
-    <h3>Valores</h3>
-    <ul>
-      <li>Innovación</li>
-      <li>Integridad</li>
-      <li>Excelencia</li>
-      <li>Trabajo en equipo</li>
-      <li>Sostenibilidad</li>
-    </ul>
-  </section>
-
-  <!-- Productos -->
-  <section id="productos">
-    <h2>Nuestros Productos</h2>
-    <div class="productos-grid">
-      <div class="producto-card">
-        <img src="https://via.placeholder.com/300x200?text=Celulares" alt="Celulares">
-        <h3>Celulares</h3>
-        <p>Smartphones de última generación.</p>
-        <span class="precio">$899.000</span>
-        <button class="btn-comprar">Agregar al carrito</button>
-      </div>
-      <div class="producto-card">
-        <img src="https://via.placeholder.com/300x200?text=Computadores" alt="Computadores">
-        <h3>Computadores</h3>
-        <p>Equipos de alto rendimiento.</p>
-        <span class="precio">$2.199.000</span>
-        <button class="btn-comprar">Agregar al carrito</button>
-      </div>
-      <div class="producto-card">
-        <img src="https://via.placeholder.com/300x200?text=Smartwatch" alt="Smartwatch">
-        <h3>Relojes Smartwatch</h3>
-        <p>Monitorea tu salud y productividad.</p>
-        <span class="precio">$599.000</span>
-        <button class="btn-comprar">Agregar al carrito</button>
-      </div>
+  <!-- Resumen -->
+  <section class="resumen">
+    <div class="resumen-item">
+      <i class="fas fa-mobile-alt"></i>
+      <h3>Celulares</h3>
+      <p>Modelos actualizados, potentes y a tu alcance.</p>
     </div>
-  </section>
-
-  <!-- Servicios -->
-  <section id="servicios">
-    <h2>Servicios</h2>
-    <div class="productos-grid">
-      <div class="producto-card">
-        <img src="https://via.placeholder.com/300x200?text=Reparaciones" alt="Reparaciones">
-        <h3>Reparación de Equipos</h3>
-        <p>Soluciones rápidas y confiables.</p>
-      </div>
-      <div class="producto-card">
-        <img src="https://via.placeholder.com/300x200?text=Asesorias" alt="Asesorías">
-        <h3>Asesorías Personalizadas</h3>
-        <p>Expertos listos para ayudarte.</p>
-      </div>
+    <div class="resumen-item">
+      <i class="fas fa-laptop"></i>
+      <h3>Computadores</h3>
+      <p>Equipos para trabajar, jugar y estudiar sin límites.</p>
     </div>
-  </section>
-
-  <!-- Blog -->
-  <section id="blog">
-    <h2>Últimos Artículos</h2>
-    <div class="blog-grid">
-      <div class="blog-card">
-        <img src="https://via.placeholder.com/400x200?text=IA" alt="IA">
-        <h3>El impacto de la IA</h3>
-        <p>Descubre cómo la IA transforma la tecnología actual.</p>
-        <a href="#" class="blog-btn">Leer más</a>
-      </div>
+    <div class="resumen-item">
+      <i class="fas fa-watch"></i>
+      <h3>Smartwatches</h3>
+      <p>Salud y conectividad desde tu muñeca.</p>
     </div>
   </section>
 
@@ -142,17 +73,91 @@
     </div>
   </section>
 
+  <!-- Nosotros -->
+  <section id="nosotros">
+    <h2>Sobre Nosotros</h2>
+    <div class="nosotros-grid">
+      <div class="nosotros-card">
+        <i class="fas fa-bullseye"></i>
+        <h3>Misión</h3>
+        <p>Brindar soluciones tecnológicas innovadoras que mejoren la vida de las personas y empresas.</p>
+      </div>
+      <div class="nosotros-card">
+        <i class="fas fa-eye"></i>
+        <h3>Visión</h3>
+        <p>Ser referentes en distribución de tecnología en América Latina para el año 2030.</p>
+      </div>
+      <div class="nosotros-card">
+        <i class="fas fa-tasks"></i>
+        <h3>Objetivos</h3>
+        <ul>
+          <li>Expandir operaciones a 15 países en 5 años.</li>
+          <li>Lanzar nuestra línea propia de productos.</li>
+          <li>Impulsar programas sociales con tecnología.</li>
+        </ul>
+      </div>
+      <div class="nosotros-card">
+        <i class="fas fa-star"></i>
+        <h3>Valores</h3>
+        <ul>
+          <li>Innovación</li>
+          <li>Integridad</li>
+          <li>Excelencia</li>
+          <li>Trabajo en equipo</li>
+          <li>Sostenibilidad</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos">
+    <h2>Nuestros Productos</h2>
+    <div class="menu-productos">
+      <button onclick="mostrarCategoria('celulares')">Celulares</button>
+      <button onclick="mostrarCategoria('computadores')">Computadores</button>
+      <button onclick="mostrarCategoria('smartwatches')">Smartwatches</button>
+    </div>
+    <div id="productos-grid" class="productos-grid"></div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog">
+    <h2>Últimos Artículos</h2>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img src="https://via.placeholder.com/400x200?text=Gadgets+2025" alt="Gadget 2025" />
+        <h3>Los gadgets más esperados del 2025</h3>
+        <p>Descubre las innovaciones que revolucionarán el mercado este año.</p>
+        <a href="#" class="blog-btn">Leer más</a>
+      </div>
+      <div class="blog-card">
+        <img src="https://via.placeholder.com/400x200?text=Comparativa+Smartphones" alt="Smartphones" />
+        <h3>Comparativa: Los mejores smartphones de gama media</h3>
+        <p>Analizamos rendimiento, batería y cámaras en los modelos más buscados.</p>
+        <a href="#" class="blog-btn">Leer más</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Contacto -->
   <section id="contacto">
     <h2>Contáctanos</h2>
-    <form action="https://formspree.io/f/tu_codigo_aqui" method="POST">
-      <input type="hidden" name="_redirect" value="https://tusitio.netlify.app/gracias.html">
+    <form action="#" method="POST">
       <label>Nombre</label>
-      <input type="text" name="nombre" required>
+      <input type="text" name="nombre" required />
       <label>Correo</label>
-      <input type="email" name="correo" required>
+      <input type="email" name="correo" required />
       <label>Teléfono</label>
-      <input type="tel" name="telefono" required pattern="[0-9]{10}">
+      <input type="tel" name="telefono" required pattern="[0-9]{10}" />
+      <label>Dirección de envío</label>
+      <input type="text" name="direccion" required />
+      <label>Método de pago</label>
+      <select name="pago" required>
+        <option value="">Selecciona</option>
+        <option value="efectivo">Efectivo</option>
+        <option value="tarjeta">Tarjeta de crédito</option>
+      </select>
       <label>Mensaje</label>
       <textarea name="mensaje" required></textarea>
       <button type="submit">Enviar</button>
@@ -160,19 +165,52 @@
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="main-footer">
     <p>&copy; 2025 TechNova. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- JS -->
+  <!-- JavaScript -->
   <script>
     let contador = 0;
-    document.querySelectorAll('.btn-comprar').forEach(btn => {
-      btn.addEventListener('click', () => {
-        contador++;
-        document.getElementById('contador-carrito').textContent = contador;
+    const carritoContador = document.getElementById('contador-carrito');
+
+    function agregarAlCarrito() {
+      contador++;
+      carritoContador.textContent = contador;
+    }
+
+    const productos = {
+      celulares: [
+        { nombre: 'Galaxy S23', precio: 3200000 },
+        { nombre: 'iPhone 14', precio: 4500000 },
+        { nombre: 'Xiaomi Redmi Note 12', precio: 1200000 },
+      ],
+      computadores: [
+        { nombre: 'Asus ROG', precio: 5800000 },
+        { nombre: 'MacBook Air', precio: 6200000 },
+        { nombre: 'HP Pavilion', precio: 3400000 },
+      ],
+      smartwatches: [
+        { nombre: 'Apple Watch Series 9', precio: 1900000 },
+        { nombre: 'Samsung Galaxy Watch 5', precio: 1500000 },
+        { nombre: 'Amazfit GTS 4', precio: 800000 },
+      ],
+    };
+
+    function mostrarCategoria(categoria) {
+      const grid = document.getElementById('productos-grid');
+      grid.innerHTML = '';
+      productos[categoria].forEach((p) => {
+        const card = document.createElement('div');
+        card.className = 'producto-card';
+        card.innerHTML = `
+          <h3>${p.nombre}</h3>
+          <p>Precio: $${p.precio.toLocaleString()}</p>
+          <button onclick=\"agregarAlCarrito()\">Agregar al carrito</button>
+        `;
+        grid.appendChild(card);
       });
-    });
+    }
 
     function toggleMobileMenu() {
       document.querySelector('.nav-links').classList.toggle('active');
