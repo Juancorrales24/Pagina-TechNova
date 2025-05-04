@@ -3,116 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technova | Innovación Tecnológica</title>
+    <title>Technova | Tecnología Innovadora</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Encabezado -->
+    <!-- Header (Mobile & Desktop) -->
     <header class="header">
         <div class="logo">
-            <img src="assets/logo.png" alt="Technova">
-            <h1>TECHNOVA</h1>
-            <p class="slogan">Innovación a tu alcance</p>
+            <img src="assets/logo-technova.png" alt="Technova" width="40">
+            <span>TECHNOVA</span>
         </div>
+        
+        <!-- Menú Hamburguesa (Mobile) -->
+        <button class="menu-toggle" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Menú Principal -->
         <nav class="menu">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#productos">Productos</a></li>
                 <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#carrito"><i class="fas fa-shopping-cart"></i> (<span id="cart-count">0</span>)</a></li>
             </ul>
         </nav>
+        
+        <!-- Carrito -->
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
     </header>
 
-    <!-- Contenido Principal -->
-    <main>
-        <!-- Sección Inicio -->
-        <section id="inicio" class="hero">
-            <div class="hero-content">
-                <h2>Tecnología que Inspira</h2>
-                <p>Descubre los mejores dispositivos y servicios tecnológicos del mercado.</p>
-                <button class="cta">Explorar Productos</button>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Tecnología del Futuro, Hoy</h1>
+            <p>Descubre lo último en dispositivos inteligentes.</p>
+            <button class="cta-pulse">Ver Productos</button>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos" class="products">
+        <h2>Nuestros Productos</h2>
+        <div class="product-grid" id="product-list">
+            <!-- Productos cargados con JavaScript -->
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="services">
+        <h2>Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-tools"></i>
+                <h3>Reparación Express</h3>
+                <p>Garantía de 24 horas.</p>
             </div>
-            <img src="assets/tech-hero.jpg" alt="Tecnología">
-        </section>
-
-        <!-- Sección Nosotros -->
-        <section id="nosotros" class="about">
-            <h2>Nosotros</h2>
-            <div class="about-grid">
-                <div class="card">
-                    <h3>Misión</h3>
-                    <p>Ofrecer tecnología de calidad con un servicio excepcional.</p>
-                    <img src="assets/mision.jpg" alt="Misión">
-                </div>
-                <div class="card">
-                    <h3>Visión</h3>
-                    <p>Ser líderes en innovación tecnológica en 2025.</p>
-                    <img src="assets/vision.jpg" alt="Visión">
-                </div>
+            <div class="service-card">
+                <i class="fas fa-shipping-fast"></i>
+                <h3>Envío Gratis</h3>
+                <p>En compras mayores a $100.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Sección Productos (con carrito) -->
-        <section id="productos" class="products">
-            <h2>Productos</h2>
-            <div class="product-grid" id="product-list">
-                <!-- Productos se cargan con JavaScript -->
-            </div>
-        </section>
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <h2>Contacto</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo" required>
+            <textarea placeholder="Mensaje" required></textarea>
+            <button type="submit" class="cta">Enviar</button>
+        </form>
+    </section>
 
-        <!-- Sección Servicios -->
-        <section id="servicios" class="services">
-            <h2>Servicios</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <h3>Reparación de Equipos</h3>
-                    <img src="assets/reparacion.jpg" alt="Reparación">
-                    <button class="cta">Solicitar Servicio</button>
-                </div>
-                <div class="service-card">
-                    <h3>Envío a Domicilio</h3>
-                    <img src="assets/envio.jpg" alt="Envío">
-                    <button class="cta">Pedir Ahora</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Contacto -->
-        <section id="contacto" class="contact">
-            <h2>Contáctenos</h2>
-            <form id="contact-form">
-                <input type="text" placeholder="Nombre" required>
-                <input type="email" placeholder="Correo" required>
-                <textarea placeholder="Mensaje" required></textarea>
-                <button type="submit" class="cta">Enviar</button>
-            </form>
-        </section>
-    </main>
-
-    <!-- Pie de Página -->
+    <!-- Footer -->
     <footer class="footer">
+        <div class="footer-columns">
+            <div class="column">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="#">Celulares</a></li>
+                    <li><a href="#">Laptops</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="social-links">
             <a href="#"><i class="fab fa-whatsapp"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fas fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
         </div>
-        <p>© 2023 Technova. Todos los derechos reservados.</p>
+        <p class="copyright">© 2023 Technova. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Carrito de Compras (Modal) -->
-    <div id="cart-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Tu Carrito</h2>
-            <div id="cart-items"></div>
-            <button id="checkout" class="cta">Pagar</button>
-        </div>
-    </div>
-
+    <!-- Scripts -->
     <script src="scripts/app.js"></script>
 </body>
 </html>
