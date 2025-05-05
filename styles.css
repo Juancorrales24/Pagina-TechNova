@@ -37,6 +37,10 @@ header {
   height: 50px;
 }
 
+.logo-text h1 {
+  margin: 0;
+}
+
 .nav-links {
   display: flex;
   gap: 1rem;
@@ -47,6 +51,10 @@ header {
   color: white;
   text-decoration: none;
   font-weight: 500;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
 }
 
 .menu-mobile {
@@ -77,7 +85,7 @@ header {
   justify-content: center;
 }
 
-/* Landing */
+/* Sección de inicio */
 .landing {
   background: linear-gradient(to right, #1E3D6B, var(--azul-primario));
   color: white;
@@ -101,7 +109,7 @@ header {
   background: #e55a26;
 }
 
-/* Resumen */
+/* Resumen de categorías */
 .resumen {
   display: flex;
   flex-wrap: wrap;
@@ -170,6 +178,11 @@ header {
   margin-bottom: 1rem;
 }
 
+.nosotros-card ul {
+  padding-left: 1rem;
+  text-align: left;
+}
+
 /* Productos */
 .menu-productos {
   display: flex;
@@ -207,6 +220,45 @@ header {
   text-align: center;
 }
 
+/* Carrito y pago */
+#carrito-resumen {
+  padding: 1rem;
+  background: var(--blanco);
+  box-shadow: var(--sombra);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+}
+
+form input,
+form textarea,
+form select {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background: var(--naranja-cta);
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 /* Blog */
 .blog-grid {
   display: grid;
@@ -237,50 +289,18 @@ header {
   font-weight: bold;
 }
 
-/* Contacto */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
-  margin: 2rem auto;
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: var(--sombra);
-}
-
-form input,
-form textarea,
-form select {
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-form button {
-  background: var(--naranja-cta);
-  color: white;
-  border: none;
-  padding: 0.8rem;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 /* Footer */
 .main-footer {
   background: var(--azul-primario);
   color: white;
   text-align: center;
   padding: 1rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
     flex-direction: column;
     background: var(--azul-primario);
     position: absolute;
@@ -289,6 +309,7 @@ form button {
     width: 100%;
     text-align: center;
     padding: 1rem 0;
+    display: none;
   }
   .nav-links.active {
     display: flex;
