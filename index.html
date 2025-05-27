@@ -8,18 +8,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <div id="video-flotante" class="video-flotante" hidden>
-  <div class="video-contenido">
-    <iframe width="100%" height="180"
-      src="https://www.youtube.com/embed/kewkWA8E7xw?autoplay=1&mute=1&rel=0"
-      title="Video de Bienvenida"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-    </iframe>
-    <button class="cerrar-video" onclick="cerrarVideo()">×</button>
-  </div>
+  <iframe width="100%" height="180"
+    src="https://www.youtube.com/embed/kewkWA8E7xw?autoplay=1&mute=1&rel=0"
+    title="Bienvenida a TechNova"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen></iframe>
+  <button class="cerrar-video" onclick="cerrarVideo()">×</button>
 </div>
-
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById("video-flotante");
@@ -30,7 +26,6 @@
       localStorage.setItem("videoMostrado", "true");
     }
   });
-
   function cerrarVideo() {
     document.getElementById("video-flotante").hidden = true;
   }
@@ -54,9 +49,7 @@
     <li><a href="contacto.html">Contacto</a></li>
   </ul>
 </nav>
-
   </header>
-
   <main>
     <section id="inicio" class="landing">
       <div class="landing-content">
@@ -65,7 +58,6 @@
         <a href="productos.html" class="btn-cta">Explorar Productos</a>
       </div>
     </section>
-
     <section class="resumen">
       <div class="resumen-item">
         <i class="fas fa-mobile-alt"></i>
@@ -83,7 +75,6 @@
         <p>Salud y conectividad desde tu muñeca.</p>
       </div>
     </section>
-
     <section class="cta-section">
       <h2>¿Estás listo para dar el siguiente paso?</h2>
       <div class="cta-buttons">
@@ -93,7 +84,6 @@
       </div>
     </section>
   </main>
-
   <footer class="main-footer">
     <p>&copy; 2025 TechNova. Todos los derechos reservados.</p>
   </footer>
