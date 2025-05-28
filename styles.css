@@ -31,6 +31,7 @@ body {
   flex: 1 0 auto;
 }
 
+/* --- HEADER Y NAVEGACIÓN --- */
 header {
   background: linear-gradient(135deg, var(--azul-primario), #1E3D6B);
   color: white;
@@ -43,10 +44,24 @@ header {
   z-index: 1000;
 }
 
+.logo,
+.logo-text,
+.logo-text h1,
+.logo-text p {
+  color: white !important;
+}
+
 .logo {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+nav {
+  flex: 1 0 0;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
 }
 
 .nav-links {
@@ -57,16 +72,30 @@ header {
   margin: 0;
 }
 
+.nav-links a {
+  color: white !important;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
+}
+
 .carrito-icon {
   position: relative;
   font-size: 1.4rem;
-  color: white;
+  color: white !important;
   cursor: pointer;
   margin-left: 1.2rem;
   display: flex;
   align-items: center;
   height: 40px;
+  min-width: 44px;
+  justify-content: flex-end;
 }
+
 .carrito-contador {
   position: absolute;
   top: -10px;
@@ -320,6 +349,10 @@ footer .footer-logo img {
 
 /* Responsive */
 @media (max-width: 900px) {
+  nav {
+    flex: 1 0 0;
+    justify-content: center;
+  }
   .resumen {
     gap: 1rem;
     padding: 2rem 0.5rem;
@@ -329,41 +362,36 @@ footer .footer-logo img {
 @media (max-width: 600px) {
   header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 1rem;
     text-align: center;
   }
-
   .logo {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
     width: 100%;
+    margin-bottom: 0.5rem;
   }
-
-  .logo img {
-    height: 40px;
+  nav {
+    width: 100%;
+    justify-content: center;
   }
-
-  .logo-text h1 {
-    font-size: 1.3rem;
-  }
-
-  .logo-text p {
-    font-size: 0.8rem;
-  }
-
   .nav-links {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     padding-top: 1rem;
   }
-
+  .carrito-icon {
+    justify-content: center;
+    margin-left: 0;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
   .main-container, main, .container {
     padding: 1rem 0.5rem;
   }
-
   .resumen {
     flex-direction: column;
     align-items: center;
@@ -375,6 +403,7 @@ footer .footer-logo img {
   }
 }
 
+/* Nosotros */
 .nosotros-grid {
   display: flex;
   flex-wrap: wrap;
