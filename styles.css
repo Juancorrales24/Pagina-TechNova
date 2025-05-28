@@ -57,7 +57,6 @@ header {
   gap: 1rem;
 }
 
-/* Agrupa menú y carrito a la derecha */
 .header-actions {
   display: flex;
   align-items: center;
@@ -228,6 +227,71 @@ nav {
 
 /* ----------- FIN FORMULARIO DE PAGO ----------- */
 
+/* ----------- PRODUCTOS ----------- */
+.menu-productos {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+.menu-productos button {
+  background: var(--azul-primario);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.menu-productos button:hover {
+  background: var(--naranja-cta);
+}
+.productos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.producto-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 1.2rem 1.5rem;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.22s;
+}
+.producto-card h3 {
+  margin: 0.5em 0 0.3em 0;
+  color: var(--azul-primario);
+  font-size: 1.15rem;
+}
+.producto-card p {
+  margin-bottom: 1rem;
+  color: #444;
+  font-size: 1.05rem;
+}
+.producto-card button {
+  background: var(--naranja-cta);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 0.6rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.producto-card button:hover {
+  background: var(--azul-primario);
+}
+
+/* ----------- FIN PRODUCTOS ----------- */
+
 /* Responsive */
 @media (max-width: 900px) {
   .blog-grid {
@@ -236,6 +300,13 @@ nav {
   .blog-card {
     width: 90vw;
     max-width: 380px;
+  }
+  .productos-grid {
+    gap: 0.8rem;
+  }
+  .producto-card {
+    width: 90vw;
+    max-width: 350px;
   }
 }
 
@@ -249,6 +320,15 @@ nav {
     gap: 1.5rem;
   }
   .blog-card {
+    width: 98vw;
+    max-width: 420px;
+  }
+  .productos-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .producto-card {
     width: 98vw;
     max-width: 420px;
   }
