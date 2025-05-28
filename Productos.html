@@ -25,7 +25,7 @@
         <li><a href="Juegos.html">Juegos</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
-      <div class="carrito-icon">
+      <div class="carrito-icon" id="icono-carrito" title="Ver carrito">
         <i class="fas fa-shopping-cart"></i>
         <span class="carrito-contador" id="contador-carrito">0</span>
       </div>
@@ -41,35 +41,41 @@
         <button onclick="mostrarCategoria('smartwatches')">Smartwatches</button>
       </div>
       <div id="productos-grid" class="productos-grid"></div>
-
-      <h3>Resumen del carrito</h3>
-      <div id="carrito-resumen" class="carrito-resumen"></div>
-
-      <form id="formulario-pago" style="display: none;">
-        <h3>Datos para la compra</h3>
-        <label>Nombre</label>
-        <input type="text" name="nombre" required />
-        <label>Correo</label>
-        <input type="email" name="correo" required />
-        <label>Dirección de envío</label>
-        <input type="text" name="direccion" required />
-        <label>Método de pago</label>
-        <select name="pago" required>
-          <option value="">Selecciona</option>
-          <option value="efectivo">Efectivo</option>
-          <option value="tarjeta">Tarjeta</option>
-        </select>
-        <button type="submit">Finalizar compra</button>
-      </form>
     </section>
   </main>
+
+  <!-- Panel lateral del carrito -->
+  <div id="panel-carrito" class="panel-carrito">
+    <div class="carrito-header">
+      <span>Tu Carrito</span>
+      <button class="cerrar-panel" onclick="cerrarPanelCarrito()">&times;</button>
+    </div>
+    <div id="carrito-resumen" class="carrito-resumen"></div>
+    <form id="formulario-pago" style="display: none;">
+      <h3>Datos para la compra</h3>
+      <label>Nombre</label>
+      <input type="text" name="nombre" required />
+      <label>Correo</label>
+      <input type="email" name="correo" required />
+      <label>Dirección de envío</label>
+      <input type="text" name="direccion" required />
+      <label>Método de pago</label>
+      <select name="pago" required>
+        <option value="">Selecciona</option>
+        <option value="efectivo">Efectivo</option>
+        <option value="tarjeta">Tarjeta</option>
+      </select>
+      <button type="submit">Finalizar compra</button>
+    </form>
+  </div>
+  <div id="overlay-carrito" class="overlay-carrito" onclick="cerrarPanelCarrito()"></div>
 
   <footer class="main-footer">
     <p>&copy; 2025 TechNova. Todos los derechos reservados.</p>
   </footer>
 
-  <script src="carrito.js"></script>
   <script>
+    // Productos del catálogo
     const productos = {
       celulares: [
         { nombre: 'Galaxy S23', precio: 3200000 },
@@ -88,20 +94,24 @@
       ]
     };
 
+    // Mostrar productos de una categoría
     function mostrarCategoria(categoria) {
       const grid = document.getElementById('productos-grid');
       grid.innerHTML = '';
-      productos[categoria].forEach(p => {
+      productos[categoria].forEach((p, idx) => {
         const card = document.createElement('div');
         card.className = 'producto-card';
         card.innerHTML = `
           <h3>${p.nombre}</h3>
           <p>Precio: $${p.precio.toLocaleString()}</p>
-          <button onclick="agregarAlCarrito('${p.nombre}', ${p.precio})">Agregar al carrito</button>
+          <button onclick="agregarAlCarrito('${p.nombre.replace(/'/g, "\\'")}', ${p.precio})">Agregar al carrito</button>
         `;
         grid.appendChild(card);
       });
     }
+    // Mostrar categoría por defecto
+    window.onload = () => mostrarCategoria('celulares');
   </script>
+  <script src="carrito.js"></script>
 </body>
 </html>
