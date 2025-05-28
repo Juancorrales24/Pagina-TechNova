@@ -1,18 +1,38 @@
 let carrito = [];
 
-function agregarAlCarrito(nombre, precio) {
-  carrito.push({ nombre, precio });
+// Abre el panel lateral
+function abrirPanelCarrito() {
+  document.getElementById('panel-carrito').classList.add('abierto');
+  document.getElementById('overlay-carrito').style.display = 'block';
   actualizarCarrito();
 }
 
+// Cierra el panel lateral
+function cerrarPanelCarrito() {
+  document.getElementById('panel-carrito').classList.remove('abierto');
+  document.getElementById('overlay-carrito').style.display = 'none';
+}
+
+// Añade producto al carrito
+function agregarAlCarrito(nombre, precio) {
+  carrito.push({ nombre, precio });
+  actualizarCarrito();
+  actualizarContador();
+}
+
+// Elimina producto por índice
+function eliminarDelCarrito(idx) {
+  carrito.splice(idx, 1);
+  actualizarCarrito();
+  actualizarContador();
+}
+
+// Actualiza el resumen del carrito en el panel lateral
 function actualizarCarrito() {
   const carritoResumen = document.getElementById('carrito-resumen');
   const pagoForm = document.getElementById('formulario-pago');
-  const contador = document.getElementById('contador-carrito');
 
   carritoResumen.innerHTML = '';
-  if (contador) contador.textContent = carrito.length;
-
   if (carrito.length === 0) {
     carritoResumen.innerHTML = '<p>Tu carrito está vacío.</p>';
     if (pagoForm) pagoForm.style.display = 'none';
@@ -20,10 +40,13 @@ function actualizarCarrito() {
   }
 
   let total = 0;
-  carrito.forEach((item) => {
+  carrito.forEach((item, idx) => {
     const div = document.createElement('div');
     div.className = 'carrito-item';
-    div.innerHTML = `<strong>${item.nombre}</strong> - $${item.precio.toLocaleString()}`;
+    div.innerHTML = `
+      <strong>${item.nombre}</strong> - $${item.precio.toLocaleString()}
+      <button class="eliminar-item" title="Eliminar" onclick="eliminarDelCarrito(${idx})">&times;</button>
+    `;
     carritoResumen.appendChild(div);
     total += item.precio;
   });
@@ -36,17 +59,18 @@ function actualizarCarrito() {
   if (pagoForm) pagoForm.style.display = 'block';
 }
 
+// Actualiza el contador del carrito en el icono
+function actualizarContador() {
+  const contador = document.getElementById('contador-carrito');
+  if (contador) contador.textContent = carrito.length;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Icono del carrito en header
   const iconoCarrito = document.getElementById('icono-carrito');
-  const panelCarrito = document.getElementById('panel-carrito');
-
-  if (iconoCarrito && panelCarrito) {
-    iconoCarrito.addEventListener('click', () => {
-      panelCarrito.classList.toggle('visible');
-    });
+  if (iconoCarrito) {
+    iconoCarrito.addEventListener('click', abrirPanelCarrito);
   }
-
-  if (document.getElementById('carrito-resumen')) {
-    actualizarCarrito();
-  }
+  // Actualiza el contador al cargar
+  actualizarContador();
 });
