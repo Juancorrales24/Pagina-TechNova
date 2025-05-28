@@ -63,11 +63,22 @@
       <label>Dirección de envío</label>
       <input type="text" name="direccion" required />
       <label>Método de pago</label>
-      <select name="pago" required>
+      <select name="pago" id="metodo-pago" required>
         <option value="">Selecciona</option>
         <option value="efectivo">Efectivo</option>
         <option value="tarjeta">Tarjeta</option>
       </select>
+      <!-- DATOS ADICIONALES SOLO SI ES TARJETA -->
+      <div id="datos-tarjeta" style="display:none;">
+        <label>Número de tarjeta</label>
+        <input type="text" name="numero_tarjeta" maxlength="19" autocomplete="cc-number" />
+        <label>Nombre en la tarjeta</label>
+        <input type="text" name="nombre_tarjeta" autocomplete="cc-name" />
+        <label>Fecha de vencimiento</label>
+        <input type="month" name="vencimiento_tarjeta" />
+        <label>Código de seguridad (CVV)</label>
+        <input type="text" name="cvv_tarjeta" maxlength="4" autocomplete="cc-csc" />
+      </div>
       <button type="submit">Finalizar compra</button>
     </form>
   </div>
@@ -114,6 +125,24 @@
     }
     // Mostrar categoría por defecto
     window.onload = () => mostrarCategoria('celulares');
+  </script>
+  <script>
+    // Mostrar campos de tarjeta solo si elige "tarjeta"
+    document.addEventListener("DOMContentLoaded", function() {
+      const metodoPago = document.getElementById('metodo-pago');
+      const datosTarjeta = document.getElementById('datos-tarjeta');
+      if(metodoPago){
+        metodoPago.addEventListener('change', function() {
+          if (this.value === "tarjeta") {
+            datosTarjeta.style.display = "block";
+            datosTarjeta.querySelectorAll('input').forEach(inp => inp.required = true);
+          } else {
+            datosTarjeta.style.display = "none";
+            datosTarjeta.querySelectorAll('input').forEach(inp => inp.required = false);
+          }
+        });
+      }
+    });
   </script>
   <script src="carrito.js"></script>
 </body>
