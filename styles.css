@@ -49,15 +49,6 @@ header {
   gap: 1rem;
 }
 
-.logo img {
-  height: 50px;
-  display: block;
-}
-
-.logo-text h1 {
-  margin: 0;
-}
-
 .nav-links {
   display: flex;
   gap: 1rem;
@@ -66,33 +57,16 @@ header {
   margin: 0;
 }
 
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.nav-links a.active {
-  text-decoration: underline;
-}
-
-.menu-mobile {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: white;
-}
-
 .carrito-icon {
   position: relative;
   font-size: 1.4rem;
   color: white;
   cursor: pointer;
-  margin-left: 1.5rem;
+  margin-left: 1.2rem;
   display: flex;
   align-items: center;
+  height: 40px;
 }
-
 .carrito-contador {
   position: absolute;
   top: -10px;
