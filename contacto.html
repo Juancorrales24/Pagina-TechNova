@@ -16,32 +16,64 @@
         <p>Innovación en tus manos</p>
       </div>
     </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="Juegos.html">Juegos</a></li>
-        <li><a href="contacto.html" class="active">Contacto</a></li>
-      </ul>
-    </nav>
+    <div class="header-actions">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="Juegos.html">Juegos</a></li>
+          <li><a href="contacto.html" class="active">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="carrito-icon" id="icono-carrito" title="Ver carrito">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="carrito-contador" id="contador-carrito">0</span>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section id="contacto">
+    <section id="contacto" class="contacto-section">
       <h2>Contáctanos</h2>
-      <form action="#" method="POST">
-        <label>Nombre</label>
-        <input type="text" name="nombre" required />
-        <label>Correo</label>
-        <input type="email" name="correo" required />
-        <label>Teléfono</label>
-        <input type="tel" name="telefono" required pattern="[0-9]{10}" />
-        <label>Mensaje</label>
-        <textarea name="mensaje" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
+      <p class="contacto-texto">
+        ¿Tienes preguntas, sugerencias o deseas realizar una consulta? Completa el formulario y nuestro equipo te responderá lo antes posible.
+      </p>
+      <div class="contacto-form-wrapper">
+        <form action="#" method="POST" class="contacto-formulario">
+          <div class="campo-form">
+            <label for="nombre"><i class="fas fa-user"></i> Nombre</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+          <div class="campo-form">
+            <label for="correo"><i class="fas fa-envelope"></i> Correo</label>
+            <input type="email" id="correo" name="correo" required />
+          </div>
+          <div class="campo-form">
+            <label for="telefono"><i class="fas fa-phone"></i> Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{10}" />
+          </div>
+          <div class="campo-form">
+            <label for="mensaje"><i class="fas fa-comment"></i> Mensaje</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+          </div>
+          <button type="submit" class="btn-cta">Enviar mensaje</button>
+        </form>
+        <div class="contacto-extra">
+          <h3>Otras formas de contacto</h3>
+          <ul>
+            <li><i class="fas fa-envelope"></i> contacto@technova.com</li>
+            <li><i class="fas fa-phone"></i> +57 321 654 9870</li>
+            <li><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/573216549870" target="_blank">321 654 9870</a></li>
+          </ul>
+          <div class="contacto-redes">
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
