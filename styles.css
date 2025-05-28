@@ -265,3 +265,58 @@ footer .footer-logo img {
     padding: 1.5rem 0.5rem;
   }
 }
+.nosotros-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.nosotros-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  max-width: 320px;
+  min-width: 240px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.nosotros-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+}
+
+.nosotros-card i {
+  font-size: 2.5rem;
+  color: #007BFF;
+  margin-bottom: 1rem;
+}
+
+.nosotros-card h3 {
+  margin: 0.5rem 0 1rem 0;
+  font-size: 1.3rem;
+  color: #222;
+}
+
+.nosotros-card p,
+.nosotros-card ul {
+  color: #555;
+}
+
+.nosotros-card ul {
+  list-style: disc inside;
+  padding-left: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+#nosotros h2 {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+  color: #1a1a1a;
+}
