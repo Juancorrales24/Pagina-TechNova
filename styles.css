@@ -205,3 +205,55 @@ header {
     gap: 1rem;
     padding-top: 1rem;
   }
+.carrito-panel {
+  position: absolute;
+  top: 90px;
+  right: 20px;
+  width: 320px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: var(--blanco);
+  border: 1px solid #ccc;
+  box-shadow: var(--sombra);
+  padding: 1rem;
+  border-radius: 10px;
+  display: none;
+  z-index: 9999;
+}
+
+.carrito-panel.visible {
+  display: block;
+}
+
+.carrito-item {
+  margin-bottom: 0.5rem;
+}
+
+.carrito-total {
+  margin-top: 1rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+.carrito-icon {
+  position: relative;
+  cursor: pointer;
+  color: white;
+  font-size: 1.4rem;
+}
+
+.carrito-contador {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--naranja-cta);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
