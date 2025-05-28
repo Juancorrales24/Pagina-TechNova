@@ -74,8 +74,7 @@ nav {
   list-style: none;
   padding: 0;
 }
-
-/* ----------- BLOG MEJORADO ----------- */
+/* Sección Blog Mejorada */
 #blog {
   max-width: 1020px;
   margin: 3rem auto 2rem auto;
@@ -194,39 +193,6 @@ nav {
 .blog-btn:hover {
   background: var(--naranja-cta);
 }
-
-/* ----------- FIN BLOG MEJORADO ----------- */
-
-/* ----------- FORMULARIO DE PAGO (PRODUCTOS) ----------- */
-#formulario-pago label {
-  margin-top: 0.7rem;
-  font-weight: 500;
-  display: block;
-}
-#formulario-pago input,
-#formulario-pago select {
-  width: 100%;
-  padding: 0.55rem 0.9rem;
-  margin-bottom: 0.9rem;
-  border-radius: 8px;
-  border: 1.3px solid #c7d7ee;
-  font-size: 1rem;
-  box-sizing: border-box;
-}
-
-#datos-tarjeta label {
-  margin-top: 0.5rem;
-}
-#datos-tarjeta input {
-  width: 100%;
-  padding: 0.7rem 0.9rem;
-  margin-bottom: 0.5rem;
-  border-radius: 8px;
-  border: 1.3px solid #c7d7ee;
-  font-size: 1rem;
-}
-
-/* ----------- FIN FORMULARIO DE PAGO ----------- */
 
 /* Responsive */
 @media (max-width: 900px) {
