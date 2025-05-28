@@ -57,11 +57,15 @@ header {
   gap: 1rem;
 }
 
-nav {
-  flex: 1 0 0;
+/* Agrupa menú y carrito a la derecha */
+.header-actions {
   display: flex;
-  justify-content: center;
-  min-width: 0;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+nav {
+  display: flex;
 }
 
 .nav-links {
@@ -88,12 +92,12 @@ nav {
   font-size: 1.4rem;
   color: white !important;
   cursor: pointer;
-  margin-left: 1.2rem;
   display: flex;
   align-items: center;
   height: 40px;
   min-width: 44px;
   justify-content: flex-end;
+  margin-left: 0.8rem;
 }
 
 .carrito-contador {
@@ -347,11 +351,14 @@ footer .footer-logo img {
   display: inline-block;
 }
 
-/* Responsive */
+/* Responsive: menú y carrito a la derecha debajo del logo en móvil */
 @media (max-width: 900px) {
+  .header-actions {
+    flex-direction: row;
+    gap: 1rem;
+  }
   nav {
-    flex: 1 0 0;
-    justify-content: center;
+    width: auto;
   }
   .resumen {
     gap: 1rem;
@@ -372,6 +379,12 @@ footer .footer-logo img {
     gap: 0.5rem;
     width: 100%;
     margin-bottom: 0.5rem;
+  }
+  .header-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.8rem;
   }
   nav {
     width: 100%;
