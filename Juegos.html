@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TechNova | Juegos</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     .juegos-container {
       display: flex;
@@ -51,7 +52,23 @@
 </head>
 <body>
   <header>
-    <!-- (Aquí puedes poner el mismo menú de navegación que usas en index.html) -->
+    <div class="logo">
+      <img src="assets/logo.png" alt="TechNova Logo">
+      <div class="logo-text">
+        <h1>TechNova</h1>
+        <p>Innovación en tus manos</p>
+      </div>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="Juegos.html" class="active">Juegos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
   </header>
   <main>
     <section id="kahoot">
@@ -70,5 +87,8 @@
       </div>
     </section>
   </main>
+  <footer class="main-footer">
+    <p>&copy; 2025 TechNova. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
