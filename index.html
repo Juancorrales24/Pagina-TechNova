@@ -6,13 +6,135 @@
   <title>TechNova | Inicio</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* --- Slider de inicio dinámico --- */
+    .slider-inicio {
+      width: 100%;
+      max-width: 1100px;
+      margin: 2.2rem auto 2.5rem auto;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(42,92,139,0.09);
+      position: relative;
+      background: linear-gradient(120deg,#eaf6fb 70%,#fff7e6 100%);
+    }
+    .slider-container {
+      position: relative;
+      width: 100%;
+    }
+    .slider-track {
+      display: flex;
+      transition: transform 0.65s cubic-bezier(.61,.33,.35,1.18);
+    }
+    .slide {
+      min-width: 100%;
+      position: relative;
+      opacity: 0.4;
+      transform: scale(0.97);
+      transition: opacity 0.4s, transform 0.4s;
+      pointer-events: none;
+    }
+    .slide.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+      z-index: 2;
+    }
+    .slide img {
+      display: block;
+      width: 100%;
+      height: 355px;
+      object-fit: cover;
+      filter: brightness(0.96) contrast(1.04) saturate(1.1);
+      transition: transform 0.4s cubic-bezier(.46,1.65,.44,.97);
+      border-radius: 0;
+      box-shadow: 0 3px 18px 0 rgba(42,92,139,0.07);
+    }
+    .slide.active img:hover {
+      transform: scale(1.06) rotate(-1.5deg);
+      filter: brightness(1.01) contrast(1.07) saturate(1.13);
+    }
+    .slide-caption {
+      position: absolute;
+      bottom: 2.2rem;
+      left: 2.7rem;
+      background: rgba(255,255,255,0.78);
+      border-radius: 12px;
+      padding: 1.1rem 2.1rem 1rem 2.1rem;
+      max-width: 450px;
+      box-shadow: 0 4px 16px 0 rgba(42,92,139,0.09);
+      animation: fadeInCaption 0.8s;
+    }
+    @keyframes fadeInCaption { from { opacity:0; transform: translateY(30px);} to {opacity:1;transform:none;} }
+    .slide-caption h2 {
+      margin: 0 0 0.2em 0;
+      color: var(--azul-primario, #295b8c);
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+    .slide-caption p {
+      margin: 0;
+      color: #333;
+      font-size: 1.01rem;
+      font-weight: 500;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(42,92,139,0.15);
+      border: none;
+      font-size: 2.4rem;
+      color: #295b8c;
+      border-radius: 50%;
+      width: 48px; height: 48px;
+      cursor: pointer;
+      z-index: 4;
+      transition: background 0.22s, color 0.18s;
+      outline: none;
+    }
+    .slider-btn:hover { background: #fff; color: #c53341; }
+    .slider-btn.prev { left: 1.3rem; }
+    .slider-btn.next { right: 1.3rem; }
+
+    .slider-dots {
+      text-align: center;
+      position: absolute;
+      bottom: 16px; left: 0; right: 0;
+      z-index: 5;
+    }
+    .slider-dots button {
+      background: #eaf6fb;
+      border: none;
+      border-radius: 50%;
+      width: 13px; height: 13px;
+      margin: 0 5px;
+      display: inline-block;
+      cursor: pointer;
+      box-shadow: 0 1px 3px #295b8c17;
+      transition: background 0.18s, transform 0.2s;
+      outline: none;
+    }
+    .slider-dots button.active {
+      background: #295b8c;
+      transform: scale(1.3);
+    }
+    @media (max-width: 700px) {
+      .slide img { height: 220px; }
+      .slide-caption { position: static; max-width: 100%; margin: 0.5rem 0 0.5rem 0; padding: 0.7rem 1.1rem;}
+      .slider-btn.prev, .slider-btn.next { top:unset; bottom: 10px; transform:none; }
+      .slider-btn.prev { left: 20px; }
+      .slider-btn.next { right: 20px; }
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="logo">
       <img src="assets/logo.png" alt="TechNova Logo" />
       <div class="logo-text">
-     
         <p>Innovación en tus manos</p>
       </div>
     </div>
@@ -29,6 +151,37 @@
       </nav>
     </div>
   </header>
+  <!-- SLIDER INICIO DINÁMICO -->
+  <section class="slider-inicio section-animada">
+    <div class="slider-container">
+      <div class="slider-track">
+        <div class="slide active">
+          <img src="assets/imagen-inicio1.jpg" alt="Innovación en acción" />
+          <div class="slide-caption">
+            <h2>Innovación en acción</h2>
+            <p>Descubre la tecnología que transforma tu día a día</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="assets/imagen-inicio2.jpg" alt="Soluciones creativas" />
+          <div class="slide-caption">
+            <h2>Soluciones creativas</h2>
+            <p>Impulsando el futuro con ideas frescas y funcionales</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="assets/imagen-inicio3.jpg" alt="Tecnología para todos" />
+          <div class="slide-caption">
+            <h2>Tecnología para todos</h2>
+            <p>Accesible, intuitiva y diseñada para ti</p>
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn prev" aria-label="Anterior">&#10094;</button>
+      <button class="slider-btn next" aria-label="Siguiente">&#10095;</button>
+      <div class="slider-dots"></div>
+    </div>
+  </section>
   <div class="main-container">
     <main>
       <section id="inicio" class="landing section-animada" style="background:linear-gradient(110deg,#fff7e6 60%,#eaf6fb 100%); border-radius:18px; margin-bottom:2.5rem; box-shadow: 0 8px 32px rgba(42,92,139,0.12);">
@@ -82,6 +235,59 @@
     <button class="cerrar-video" onclick="cerrarVideo()">×</button>
   </div>
   <script>
+    // Slider dinámico de inicio
+    document.addEventListener("DOMContentLoaded", function(){
+      const slides = document.querySelectorAll('.slider-track .slide');
+      const track = document.querySelector('.slider-track');
+      const prevBtn = document.querySelector('.slider-btn.prev');
+      const nextBtn = document.querySelector('.slider-btn.next');
+      const dotsContainer = document.querySelector('.slider-dots');
+      let current = 0;
+      let autoSlideTimer;
+
+      // Crear dots
+      slides.forEach((_,i)=>{
+        const dot=document.createElement('button');
+        dot.setAttribute('aria-label','Slide '+(i+1));
+        if(i===0) dot.classList.add('active');
+        dotsContainer.appendChild(dot);
+        dot.addEventListener('click', ()=>goTo(i));
+      });
+      const dots = dotsContainer.querySelectorAll('button');
+
+      function updateSlider() {
+        slides.forEach((slide,i)=>{
+          slide.classList.toggle('active',i===current);
+          dots[i].classList.toggle('active',i===current);
+        });
+        track.style.transform = `translateX(-${current*100}%)`;
+      }
+      function goTo(idx){
+        current = idx;
+        updateSlider();
+        resetAuto();
+      }
+      function next(){
+        current = (current+1)%slides.length;
+        updateSlider();
+        resetAuto();
+      }
+      function prev(){
+        current = (current-1+slides.length)%slides.length;
+        updateSlider();
+        resetAuto();
+      }
+      function resetAuto() {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = setInterval(next, 5000);
+      }
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+      updateSlider();
+      autoSlideTimer = setInterval(next, 5000);
+    });
+
+    // Video flotante de bienvenida
     document.addEventListener("DOMContentLoaded", () => {
       const video = document.getElementById("video-flotante");
       const yaVisto = localStorage.getItem("videoMostrado");
