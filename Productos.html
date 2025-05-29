@@ -16,7 +16,6 @@
         <p>Innovación en tus manos</p>
       </div>
     </div>
-    <!-- Agrupamos menú y carrito a la derecha -->
     <div class="header-actions">
       <nav>
         <ul class="nav-links">
@@ -34,20 +33,17 @@
       </div>
     </div>
   </header>
-
   <main>
-    <section>
-      <h2>Nuestros Productos</h2>
-      <div class="menu-productos">
-        <button onclick="mostrarCategoria('celulares')">Celulares</button>
-        <button onclick="mostrarCategoria('computadores')">Computadores</button>
-        <button onclick="mostrarCategoria('smartwatches')">Smartwatches</button>
+    <section class="section-animada" style="background:linear-gradient(120deg,#fff7e6 70%,#eaf6fb 100%);border-radius:18px;padding:2.2rem 1.2rem;margin:3rem auto 2rem auto;max-width:1100px;">
+      <h2 style="text-align:center;color:var(--azul-primario);font-size:2.2rem;font-weight:900;margin-bottom:2rem;">Nuestros Productos</h2>
+      <div class="menu-productos" style="display:flex;justify-content:center;gap:1rem;margin-bottom:2rem;">
+        <button onclick="mostrarCategoria('celulares')"><i class="fas fa-mobile-alt"></i> Celulares</button>
+        <button onclick="mostrarCategoria('computadores')"><i class="fas fa-laptop"></i> Computadores</button>
+        <button onclick="mostrarCategoria('smartwatches')"><i class="fas fa-clock"></i> Smartwatches</button>
       </div>
       <div id="productos-grid" class="productos-grid"></div>
     </section>
   </main>
-
-  <!-- Panel lateral del carrito -->
   <div id="panel-carrito" class="panel-carrito">
     <div class="carrito-header">
       <span>Tu Carrito</span>
@@ -68,7 +64,6 @@
         <option value="efectivo">Efectivo</option>
         <option value="tarjeta">Tarjeta</option>
       </select>
-      <!-- DATOS ADICIONALES SOLO SI ES TARJETA -->
       <div id="datos-tarjeta" style="display:none;">
         <label>Número de tarjeta</label>
         <input type="text" name="numero_tarjeta" maxlength="19" autocomplete="cc-number" />
@@ -79,55 +74,49 @@
         <label>Código de seguridad (CVV)</label>
         <input type="text" name="cvv_tarjeta" maxlength="4" autocomplete="cc-csc" />
       </div>
-      <button type="submit">Finalizar compra</button>
+      <button type="submit" class="btn-cta">Finalizar compra</button>
     </form>
   </div>
   <div id="overlay-carrito" class="overlay-carrito" onclick="cerrarPanelCarrito()"></div>
-
   <footer class="main-footer">
     <p>&copy; 2025 TechNova. Todos los derechos reservados.</p>
   </footer>
-
   <script>
-    // Productos del catálogo
     const productos = {
       celulares: [
-        { nombre: 'Galaxy S23', precio: 3200000 },
-        { nombre: 'iPhone 14', precio: 4500000 },
-        { nombre: 'Xiaomi Redmi Note 12', precio: 1200000 },
+        { nombre: 'Galaxy S23', precio: 3200000, icon: 'fab fa-android' },
+        { nombre: 'iPhone 14', precio: 4500000, icon: 'fab fa-apple' },
+        { nombre: 'Xiaomi Redmi Note 12', precio: 1200000, icon: 'fas fa-mobile' },
       ],
       computadores: [
-        { nombre: 'Asus ROG', precio: 5800000 },
-        { nombre: 'MacBook Air', precio: 6200000 },
-        { nombre: 'HP Pavilion', precio: 3400000 },
+        { nombre: 'Asus ROG', precio: 5800000, icon: 'fas fa-gamepad' },
+        { nombre: 'MacBook Air', precio: 6200000, icon: 'fab fa-apple' },
+        { nombre: 'HP Pavilion', precio: 3400000, icon: 'fas fa-laptop' },
       ],
       smartwatches: [
-        { nombre: 'Apple Watch Series 9', precio: 1900000 },
-        { nombre: 'Samsung Galaxy Watch 5', precio: 1500000 },
-        { nombre: 'Amazfit GTS 4', precio: 800000 },
+        { nombre: 'Apple Watch Series 9', precio: 1900000, icon: 'fas fa-clock' },
+        { nombre: 'Samsung Galaxy Watch 5', precio: 1500000, icon: 'fas fa-clock' },
+        { nombre: 'Amazfit GTS 4', precio: 800000, icon: 'fas fa-clock' },
       ]
     };
-
-    // Mostrar productos de una categoría
     function mostrarCategoria(categoria) {
       const grid = document.getElementById('productos-grid');
       grid.innerHTML = '';
       productos[categoria].forEach((p, idx) => {
         const card = document.createElement('div');
-        card.className = 'producto-card';
+        card.className = 'producto-card card section-animada';
         card.innerHTML = `
+          <div style="font-size:2.5rem;margin-bottom:0.5rem;"><i class="${p.icon}"></i></div>
           <h3>${p.nombre}</h3>
-          <p>Precio: $${p.precio.toLocaleString()}</p>
-          <button onclick="agregarAlCarrito('${p.nombre.replace(/'/g, "\\'")}', ${p.precio})">Agregar al carrito</button>
+          <p style="font-size:1.1rem;">Precio: <b>$${p.precio.toLocaleString()}</b></p>
+          <button onclick="agregarAlCarrito('${p.nombre.replace(/'/g, "\\'")}', ${p.precio})" class="btn-cta" style="margin-top:1rem;">Agregar al carrito</button>
         `;
         grid.appendChild(card);
       });
     }
-    // Mostrar categoría por defecto
     window.onload = () => mostrarCategoria('celulares');
   </script>
   <script>
-    // Mostrar campos de tarjeta solo si elige "tarjeta"
     document.addEventListener("DOMContentLoaded", function() {
       const metodoPago = document.getElementById('metodo-pago');
       const datosTarjeta = document.getElementById('datos-tarjeta');
