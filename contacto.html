@@ -27,18 +27,16 @@
           <li><a href="contacto.html" class="active">Contacto</a></li>
         </ul>
       </nav>
-      <!-- Sin carrito en contacto -->
     </div>
   </header>
-
   <main>
-    <section id="contacto" class="contacto-section">
+    <section id="contacto" class="contacto-section section-animada">
       <h2>Contáctanos</h2>
       <p class="contacto-texto">
         ¿Tienes preguntas, sugerencias o deseas realizar una consulta? Completa el formulario y nuestro equipo te responderá lo antes posible.
       </p>
-      <div class="contacto-form-wrapper">
-        <form action="#" method="POST" class="contacto-formulario">
+      <div class="contacto-form-wrapper" style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;">
+        <form action="#" method="POST" class="contacto-formulario card section-animada" style="min-width:320px;max-width:400px;">
           <div class="campo-form">
             <label for="nombre"><i class="fas fa-user"></i> Nombre</label>
             <input type="text" id="nombre" name="nombre" required />
@@ -57,14 +55,14 @@
           </div>
           <button type="submit" class="btn-cta">Enviar mensaje</button>
         </form>
-        <div class="contacto-extra">
+        <div class="contacto-extra card section-animada" style="min-width:280px;max-width:340px;">
           <h3>Otras formas de contacto</h3>
           <ul>
             <li><i class="fas fa-envelope"></i> contacto@technova.com</li>
             <li><i class="fas fa-phone"></i> +57 321 654 9870</li>
             <li><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/573216549870" target="_blank">321 654 9870</a></li>
           </ul>
-          <div class="contacto-redes">
+          <div class="contacto-redes" style="margin-top:1rem;">
             <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
             <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
@@ -73,7 +71,6 @@
       </div>
     </section>
   </main>
-
   <footer class="main-footer">
     <p>&copy; 2025 TechNova. Todos los derechos reservados.</p>
   </footer>
