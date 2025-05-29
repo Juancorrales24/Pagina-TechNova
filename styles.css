@@ -42,10 +42,31 @@ header {
   gap: 1.2rem;
 }
 .logo img {
-  width: 46px;
+  width: 90px;
+  max-width: 18vw;
+  min-width: 54px;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 3px 11px rgba(42,92,139,0.14);
+  display: block;
+  object-fit: contain;
+  transition: width 0.2s, max-width 0.2s;
 }
+@media (max-width: 900px) {
+  .logo img {
+    width: 70px;
+    max-width: 24vw;
+    min-width: 44px;
+  }
+}
+@media (max-width: 600px) {
+  .logo img {
+    width: 54px;
+    max-width: 30vw;
+    min-width: 36px;
+  }
+}
+
 .logo-text h1 {
   font-family: var(--fuente-titulo);
   font-size: 1.55rem;
@@ -634,7 +655,9 @@ main {
 }
 @media (max-width: 600px) {
   .logo img {
-    width: 38px;
+    width: 54px;
+    max-width: 30vw;
+    min-width: 36px;
   }
   .landing-content h1,
   .section-animada h2 {
