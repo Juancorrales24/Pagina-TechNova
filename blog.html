@@ -3,9 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+  <title>TechNova | Blog</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Modal styles para el blog */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(42,92,139,0.19);
+      justify-content: center; align-items: center;
+    }
+    .modal-bg.active { display: flex; }
+    .modal-content {
+      background: #fff;
+      padding: 2rem 1.3rem 1.7rem 1.3rem;
+      border-radius: 14px;
+      max-width: 450px;
+      width: 90vw;
+      position: relative;
+      box-shadow: 0 8px 32px rgba(42,92,139,0.15);
+      animation: modalIn 0.21s cubic-bezier(.61,.33,.35,1.18);
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+    @keyframes modalIn { from { transform: translateY(60px) scale(0.88); opacity: 0; } to { transform: none; opacity: 1; }}
+    .modal-close {
+      position: absolute;
+      right: 19px; top: 15px;
+      background: none; border: none;
+      font-size: 2em; color: #c53341; font-weight: bold;
+      cursor: pointer;
+      transition: color 0.13s;
+    }
+    .modal-close:hover { color: #8b1e29; }
+    .modal-content img { max-width: 100%; border-radius: 10px; margin-bottom: 1em; }
+    .modal-content h3 { margin-top: 0.3em; }
+    @media (max-width:600px) {
+      .modal-content { padding: 0.7rem 0.3rem 1.2rem 0.3rem; }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -48,7 +87,7 @@
           </div>
           <h3>Los gadgets más esperados del 2025</h3>
           <p>Descubre las innovaciones que revolucionarán el mercado este año. Una guía visual de los lanzamientos clave y tendencias tecnológicas.</p>
-          <a href="#" class="blog-btn">Leer más</a>
+          <a href="#" class="blog-btn" onclick="abrirBlogModal(0);return false;">Leer más</a>
         </div>
         <!-- Segunda entrada -->
         <div class="blog-card card section-animada" style="max-width:340px;">
@@ -61,7 +100,7 @@
           </div>
           <h3>Comparativa: Los mejores smartphones de gama media</h3>
           <p>Analizamos rendimiento, batería y cámaras en los modelos más buscados. ¿Cuál es la mejor opción calidad-precio?</p>
-          <a href="#" class="blog-btn">Leer más</a>
+          <a href="#" class="blog-btn" onclick="abrirBlogModal(1);return false;">Leer más</a>
         </div>
         <!-- Tercera entrada -->
         <div class="blog-card card section-animada" style="max-width:340px;">
@@ -74,14 +113,95 @@
           </div>
           <h3>Tecnología verde: el futuro sustentable</h3>
           <p>Cómo los productos ecoamigables están marcando tendencia en el mercado actual y cómo puedes ser parte del cambio.</p>
-          <a href="#" class="blog-btn">Leer más</a>
+          <a href="#" class="blog-btn" onclick="abrirBlogModal(2);return false;">Leer más</a>
         </div>
       </div>
     </section>
   </main>
+  <!-- Modal para el contenido extendido del blog -->
+  <div id="blog-modal-bg" class="modal-bg" tabindex="-1" onclick="if(event.target===this)cerrarBlogModal()">
+    <div class="modal-content" id="blog-modal-content" role="dialog" aria-modal="true">
+      <button class="modal-close" onclick="cerrarBlogModal()" aria-label="Cerrar">&times;</button>
+      <!-- Contenido dinámico aquí -->
+    </div>
+  </div>
   <footer class="main-footer">
     <p>&copy; 2025 TechNova. Todos los derechos reservados.</p>
   </footer>
   <script src="carrito.js"></script>
+  <script>
+    // Datos extendidos de los blogs
+    const blogArticulos = [
+      {
+        titulo: "Los gadgets más esperados del 2025",
+        autor: "Laura Ruiz",
+        fecha: "Mayo 2025",
+        imagen: "assets/gadgets.png",
+        alt: "Gadgets innovadores",
+        contenido: `<p>El 2025 llega cargado de innovaciones tecnológicas que prometen cambiar la manera en que interactuamos con el mundo digital. Desde smartphones plegables con pantallas invisibles hasta relojes inteligentes que monitorean tu salud en tiempo real con precisión médica.</p>
+        <ul>
+          <li><b>Smartphones sin biseles</b>: Pantallas que se funden con el borde y cámaras ocultas bajo el display.</li>
+          <li><b>Gadgets sostenibles</b>: Materiales reciclados y procesos de fabricación ecológicos.</li>
+          <li><b>Dispositivos de IA personal</b>: Asistentes virtuales mucho más inteligentes y contextuales.</li>
+        </ul>
+        <p>Además, destacan los dispositivos de realidad aumentada compactos y los nuevos gadgets para el hogar inteligente. Prepárate para ver gadgets que parecen de ciencia ficción, pero que estarán en tus manos este mismo año.</p>`
+      },
+      {
+        titulo: "Comparativa: Los mejores smartphones de gama media",
+        autor: "Juan Pérez",
+        fecha: "Abril 2025",
+        imagen: "assets/celulares-gama.png",
+        alt: "Celulares de gama",
+        contenido: `<p>¿Buscas un smartphone potente sin gastar una fortuna? Analizamos los modelos más destacados de la gama media en 2025, comparando rendimiento, batería, cámaras y relación calidad-precio.</p>
+        <ol>
+          <li><b>Galaxy S23 FE</b>: Gran desempeño y pantalla AMOLED de 120Hz.</li>
+          <li><b>Redmi Note 12 Pro</b>: Excelente cámara y autonomía de dos días.</li>
+          <li><b>iPhone SE (2025)</b>: El más potente en procesador, ecosistema Apple.</li>
+        </ol>
+        <p>En conclusión, la gama media nunca fue tan competitiva. Consulta nuestra tabla comparativa y elige el que más se adapte a tus necesidades.</p>`
+      },
+      {
+        titulo: "Tecnología verde: el futuro sustentable",
+        autor: "Sofía Mendoza",
+        fecha: "Marzo 2025",
+        imagen: "assets/tecnologia-verde.png",
+        alt: "Tecnología verde",
+        contenido: `<p>La tecnología verde es una tendencia imparable en 2025. Desde paneles solares domésticos más eficientes hasta gadgets hechos con materiales biodegradables, la industria apuesta por la sostenibilidad.</p>
+        <ul>
+          <li>Electrónica con certificación ecológica.</li>
+          <li>Embalajes reciclables y reducción de residuos electrónicos.</li>
+          <li>Iniciativas de recolección y reciclaje de dispositivos antiguos.</li>
+        </ul>
+        <p>Adoptar tecnología verde no solo es bueno para el planeta, sino que además puede ayudarte a ahorrar energía y dinero. ¡Únete al cambio!</p>`
+      }
+    ];
+
+    function abrirBlogModal(idx) {
+      const art = blogArticulos[idx];
+      const modal = document.getElementById('blog-modal-bg');
+      const contenido = document.getElementById('blog-modal-content');
+      contenido.innerHTML = `
+        <button class="modal-close" onclick="cerrarBlogModal()" aria-label="Cerrar">&times;</button>
+        <img src="${art.imagen}" alt="${art.alt}">
+        <h3>${art.titulo}</h3>
+        <div style="color:#8b1e29;font-weight:600;margin-bottom:0.3em;">
+          <i class="fas fa-calendar-alt"></i> ${art.fecha} &nbsp; <i class="fas fa-user"></i> ${art.autor}
+        </div>
+        ${art.contenido}
+      `;
+      modal.classList.add('active');
+      document.body.style.overflow = "hidden";
+      // Accesibilidad: enfocar el modal al abrir
+      setTimeout(()=>{document.getElementById('blog-modal-content').focus();}, 0);
+    }
+    function cerrarBlogModal() {
+      document.getElementById('blog-modal-bg').classList.remove('active');
+      document.body.style.overflow = "";
+    }
+    // Cerrar modal con ESC
+    document.addEventListener('keydown', function(e) {
+      if(e.key === 'Escape') cerrarBlogModal();
+    });
+  </script>
 </body>
 </html>
