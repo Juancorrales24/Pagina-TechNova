@@ -128,29 +128,6 @@
       .slider-btn.prev { left: 20px; }
       .slider-btn.next { right: 20px; }
     }
-
-    /* Fondo de imagen SOLO para la sección de inicio */
-    #inicio.landing {
-      background: url('assets/fondo-inicio.jpg') center center/cover no-repeat !important;
-      border-radius: 18px;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 8px 32px rgba(42,92,139,0.12);
-      position: relative;
-    }
-    /* Capa para oscurecer un poco la imagen y mejorar el contraste del texto */
-    #inicio.landing::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(33, 51, 87, 0.22);
-      border-radius: 18px;
-      z-index: 0;
-      pointer-events: none;
-    }
-    #inicio .landing-content {
-      position: relative;
-      z-index: 1;
-    }
   </style>
 </head>
 <body>
@@ -207,7 +184,7 @@
   </section>
   <div class="main-container">
     <main>
-      <section id="inicio" class="landing section-animada">
+      <section id="inicio" class="landing section-animada" style="background:linear-gradient(110deg,#fff7e6 60%,#eaf6fb 100%); border-radius:18px; margin-bottom:2.5rem; box-shadow: 0 8px 32px rgba(42,92,139,0.12);">
         <div class="landing-content" style="text-align:center; padding:2.5rem 0;">
           <h1 style="font-size:2.8rem;font-weight:900;color:var(--azul-primario);letter-spacing:0.01em;">Bienvenido a TechNova</h1>
           <p style="font-size:1.25rem; color:#3a7dbd; margin-bottom:2rem;">Tu puerta al mundo de la tecnología de vanguardia. Celulares, computadores y gadgets que transforman tu vida.</p>
