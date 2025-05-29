@@ -112,6 +112,11 @@ header {
   box-shadow: 0 1.5px 5.5px rgba(255,107,53,0.25);
 }
 
+/* Ajuste global: separa el contenido del header sticky */
+main {
+  padding-top: 2.7rem;
+}
+
 /* Banner principal */
 .landing {
   min-height: 320px;
