@@ -42,9 +42,9 @@ header {
   gap: 1.2rem;
 }
 .logo img {
-  width: 90px;
-  max-width: 18vw;
-  min-width: 54px;
+  width: 140px;
+  max-width: 40vw;
+  min-width: 80px;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 3px 11px rgba(42,92,139,0.16);
@@ -55,16 +55,16 @@ header {
 }
 @media (max-width: 900px) {
   .logo img {
-    width: 70px;
-    max-width: 24vw;
-    min-width: 44px;
+    width: 110px;
+    max-width: 50vw;
+    min-width: 60px;
   }
 }
 @media (max-width: 600px) {
   .logo img {
-    width: 54px;
-    max-width: 30vw;
-    min-width: 36px;
+    width: 80px;
+    max-width: 60vw;
+    min-width: 50px;
   }
 }
 .logo-text h1 {
