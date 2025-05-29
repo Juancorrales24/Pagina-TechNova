@@ -16,7 +16,6 @@
         <p>Innovación en tus manos</p>
       </div>
     </div>
-    <!-- Menú y carrito agrupados para consistencia visual -->
     <div class="header-actions">
       <nav>
         <ul class="nav-links">
@@ -34,13 +33,12 @@
       </div>
     </div>
   </header>
-
   <main>
-    <section id="blog">
-      <h2>Últimos Artículos</h2>
-      <div class="blog-grid">
-        <div class="blog-card">
-          <div class="blog-img-wrapper">
+    <section id="blog" class="section-animada" style="background:linear-gradient(120deg,#eaf6fb 70%,#fff7e6 100%);border-radius:18px;padding:2.2rem 1.2rem;margin:3rem auto 2rem auto;max-width:1120px;">
+      <h2 style="text-align:center;color:var(--azul-primario);font-size:2.2rem;font-weight:900;margin-bottom:2rem;">Últimos Artículos</h2>
+      <div class="blog-grid" style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;">
+        <div class="blog-card card section-animada" style="max-width:340px;">
+          <div class="blog-img-wrapper" style="border-radius:12px;overflow:hidden;">
             <img src="https://via.placeholder.com/400x220?text=Gadgets+2025" alt="Gadget 2025" />
             <span class="blog-badge">Nuevo</span>
           </div>
@@ -52,8 +50,8 @@
           <p>Descubre las innovaciones que revolucionarán el mercado este año. Una guía visual de los lanzamientos clave y tendencias tecnológicas.</p>
           <a href="#" class="blog-btn">Leer más</a>
         </div>
-        <div class="blog-card">
-          <div class="blog-img-wrapper">
+        <div class="blog-card card section-animada" style="max-width:340px;">
+          <div class="blog-img-wrapper" style="border-radius:12px;overflow:hidden;">
             <img src="https://via.placeholder.com/400x220?text=Comparativa+Smartphones" alt="Smartphones" />
           </div>
           <div class="blog-meta">
@@ -64,8 +62,8 @@
           <p>Analizamos rendimiento, batería y cámaras en los modelos más buscados. ¿Cuál es la mejor opción calidad-precio?</p>
           <a href="#" class="blog-btn">Leer más</a>
         </div>
-        <div class="blog-card">
-          <div class="blog-img-wrapper">
+        <div class="blog-card card section-animada" style="max-width:340px;">
+          <div class="blog-img-wrapper" style="border-radius:12px;overflow:hidden;">
             <img src="https://via.placeholder.com/400x220?text=Tecnología+Verde" alt="Tecnología Verde" />
           </div>
           <div class="blog-meta">
@@ -79,9 +77,9 @@
       </div>
     </section>
   </main>
-
   <footer class="main-footer">
     <p>&copy; 2025 TechNova. Todos los derechos reservados.</p>
   </footer>
+  <script src="carrito.js"></script>
 </body>
 </html>
