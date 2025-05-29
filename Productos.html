@@ -33,8 +33,7 @@
       </div>
     </div>
   </header>
-  <!-- Agregamos padding-top para que el encabezado no quede pegado -->
-  <main style="padding-top: 2.7rem;">
+  <main>
     <section class="section-animada" style="background:linear-gradient(120deg,#fff7e6 70%,#eaf6fb 100%);border-radius:18px;padding:2.2rem 1.2rem;margin:0 auto 2rem auto;max-width:1100px;">
       <h2 style="text-align:center;color:var(--azul-primario);font-size:2.2rem;font-weight:900;margin-bottom:2rem;">Nuestros Productos</h2>
       <div class="menu-productos" style="display:flex;justify-content:center;gap:1rem;margin-bottom:2rem;">
@@ -83,23 +82,133 @@
     <p>&copy; 2025 TechNova. Todos los derechos reservados.</p>
   </footer>
   <script>
+    // Actualiza las rutas de las imágenes según tu carpeta "assets"
     const productos = {
       celulares: [
-        { nombre: 'Galaxy S23', precio: 3200000, icon: 'fab fa-android' },
-        { nombre: 'iPhone 14', precio: 4500000, icon: 'fab fa-apple' },
-        { nombre: 'Xiaomi Redmi Note 12', precio: 1200000, icon: 'fas fa-mobile' },
+        {
+          nombre: 'Galaxy S23',
+          precio: 3200000,
+          icon: 'fab fa-android',
+          imagen: 'assets/galaxy-s23.jpg',
+          caracteristicas: [
+            'Pantalla 6.1" Dynamic AMOLED 2X',
+            'Cámara triple 50MP+12MP+10MP',
+            'Procesador Snapdragon 8 Gen 2',
+            'Batería 3900mAh, carga rápida',
+            'Memoria 8GB RAM, 128GB interna'
+          ]
+        },
+        {
+          nombre: 'iPhone 14',
+          precio: 4500000,
+          icon: 'fab fa-apple',
+          imagen: 'assets/iphone-14.jpg',
+          caracteristicas: [
+            'Pantalla 6.1" Super Retina XDR',
+            'Cámara dual 12MP + 12MP',
+            'Chip A15 Bionic',
+            'Face ID, resistencia al agua IP68',
+            'Memoria 6GB RAM, 128GB interna'
+          ]
+        },
+        {
+          nombre: 'Xiaomi Redmi Note 12',
+          precio: 1200000,
+          icon: 'fas fa-mobile',
+          imagen: 'assets/redmi-note-12.jpg',
+          caracteristicas: [
+            'Pantalla 6.67" AMOLED 120Hz',
+            'Cámara triple 50MP+8MP+2MP',
+            'Procesador Snapdragon 685',
+            'Batería 5000mAh, carga rápida',
+            'Memoria 4GB RAM, 128GB interna'
+          ]
+        }
       ],
       computadores: [
-        { nombre: 'Asus ROG', precio: 5800000, icon: 'fas fa-gamepad' },
-        { nombre: 'MacBook Air', precio: 6200000, icon: 'fab fa-apple' },
-        { nombre: 'HP Pavilion', precio: 3400000, icon: 'fas fa-laptop' },
+        {
+          nombre: 'Asus ROG',
+          precio: 5800000,
+          icon: 'fas fa-gamepad',
+          imagen: 'assets/asus-rog.jpg',
+          caracteristicas: [
+            'Pantalla 15.6" FHD 144Hz',
+            'Procesador Intel Core i7',
+            'GPU NVIDIA RTX 4060 8GB',
+            'Memoria 16GB RAM, 1TB SSD',
+            'Teclado retroiluminado RGB'
+          ]
+        },
+        {
+          nombre: 'MacBook Air',
+          precio: 6200000,
+          icon: 'fab fa-apple',
+          imagen: 'assets/macbook-air.jpg',
+          caracteristicas: [
+            'Pantalla 13.6" Liquid Retina',
+            'Chip Apple M2',
+            'Memoria 8GB RAM, 256GB SSD',
+            'Batería hasta 18 horas',
+            'Touch ID, peso 1.24kg'
+          ]
+        },
+        {
+          nombre: 'HP Pavilion',
+          precio: 3400000,
+          icon: 'fas fa-laptop',
+          imagen: 'assets/hp-pavilion.jpg',
+          caracteristicas: [
+            'Pantalla 15.6" FHD',
+            'Procesador AMD Ryzen 7',
+            'Memoria 16GB RAM, 512GB SSD',
+            'Gráficos Radeon Vega',
+            'Batería hasta 8 horas'
+          ]
+        }
       ],
       smartwatches: [
-        { nombre: 'Apple Watch Series 9', precio: 1900000, icon: 'fas fa-clock' },
-        { nombre: 'Samsung Galaxy Watch 5', precio: 1500000, icon: 'fas fa-clock' },
-        { nombre: 'Amazfit GTS 4', precio: 800000, icon: 'fas fa-clock' },
+        {
+          nombre: 'Apple Watch Series 9',
+          precio: 1900000,
+          icon: 'fas fa-clock',
+          imagen: 'assets/apple-watch-9.jpg',
+          caracteristicas: [
+            'Pantalla Always-On Retina',
+            'Sensores ECG y oxígeno en sangre',
+            'Resistencia al agua 50m',
+            'GPS y Cellular',
+            'Hasta 18 horas de batería'
+          ]
+        },
+        {
+          nombre: 'Samsung Galaxy Watch 5',
+          precio: 1500000,
+          icon: 'fas fa-clock',
+          imagen: 'assets/galaxy-watch-5.jpg',
+          caracteristicas: [
+            'Pantalla 1.4" Super AMOLED',
+            'Sensor BioActive Samsung',
+            'GPS integrado',
+            'Carga rápida inalámbrica',
+            'Hasta 40 horas de batería'
+          ]
+        },
+        {
+          nombre: 'Amazfit GTS 4',
+          precio: 800000,
+          icon: 'fas fa-clock',
+          imagen: 'assets/amazfit-gts4.jpg',
+          caracteristicas: [
+            'Pantalla AMOLED HD 1.75"',
+            'Sensor BioTracker 4.0',
+            '150+ modos deportivos',
+            'GPS dual band',
+            'Hasta 8 días de batería'
+          ]
+        }
       ]
     };
+
     function mostrarCategoria(categoria) {
       const grid = document.getElementById('productos-grid');
       grid.innerHTML = '';
@@ -107,9 +216,14 @@
         const card = document.createElement('div');
         card.className = 'producto-card card section-animada';
         card.innerHTML = `
-          <div style="font-size:2.5rem;margin-bottom:0.5rem;"><i class="${p.icon}"></i></div>
-          <h3>${p.nombre}</h3>
-          <p style="font-size:1.1rem;">Precio: <b>$${p.precio.toLocaleString()}</b></p>
+          <div style="margin-bottom:0.7rem;">
+            <img src="${p.imagen}" alt="${p.nombre}" style="width:100%;max-width:160px;height:auto;border-radius:9px;box-shadow:0 2px 9px rgba(42,92,139,0.11);margin-bottom:0.7rem;">
+          </div>
+          <h3><i class="${p.icon}"></i> ${p.nombre}</h3>
+          <p style="font-size:1.1rem;margin:0.2em 0 0.7em 0;">Precio: <b>$${p.precio.toLocaleString()}</b></p>
+          <ul style="text-align:left;font-size:0.98em;line-height:1.5;margin-bottom:1em;padding-left:1.1em;">
+            ${p.caracteristicas.map(c => `<li>${c}</li>`).join('')}
+          </ul>
           <button onclick="agregarAlCarrito('${p.nombre.replace(/'/g, "\\'")}', ${p.precio})" class="btn-cta" style="margin-top:1rem;">Agregar al carrito</button>
         `;
         grid.appendChild(card);
