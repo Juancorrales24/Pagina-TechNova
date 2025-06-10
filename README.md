@@ -26,21 +26,6 @@ Nuestro sitio está diseñado para ofrecerte una experiencia moderna, fácil de 
 ├── Juegos.html        # Juegos interactivos
 └── README.md          # Este archivo
 ```
-
-## 📦 Instalación y uso
-
-1. **Clona este repositorio**  
-   ```bash
-   git clone https://github.com/<tu-usuario>/TechNova.git
-   cd TechNova
-   ```
-2. **Agrega tus imágenes** a la carpeta `assets/` según las referencias de productos.
-3. **Abre cualquier archivo HTML** en tu navegador para ver la tienda.
-
-## 🌐 Demo
-
-Si tienes desplegado el sitio (por ejemplo en Netlify o GitHub Pages), ¡agrega aquí tu [enlace demo](#)!
-
 ## 🤝 Contribuciones
 
 ¿Tienes ideas para mejorarlo?  
